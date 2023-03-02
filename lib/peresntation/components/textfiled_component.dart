@@ -6,10 +6,10 @@ import 'Directionality_component.dart';
 // ignore: must_be_immutable
 class CustomTextField extends StatelessWidget {
   TextEditingController controller;
-  IconData? icon;
+  IconData? prefixIcon;
+  IconData? suffixIcon;
   double? height;
   double? width;
-
   int? length;
   int? maxLength;
   int? minLength;
@@ -17,22 +17,26 @@ class CustomTextField extends StatelessWidget {
   String? hinText;
   bool? fill;
   Color? fillColor;
+  Color? borderColor;
   Color? labelColor;
   InputBorder? styleBorder;
-
   String? Function(String?)? valid;
   String? Function(String?)? onChange;
   void Function()? onTapIcon;
   bool? enabled;
   TextInputType? textInputType;
+  dynamic curveBorder;
 
-
+  void Function()? onPressedSuffixIcon;
 
   CustomTextField(
       {Key? key,
       required this.controller,
-      this.icon,
+      this.prefixIcon,
+      this.suffixIcon,
+      this.onPressedSuffixIcon,
       this.textInputType,
+      this.curveBorder,
       this.labelColor,
       this.onChange,
       this.onTapIcon,
@@ -53,19 +57,17 @@ class CustomTextField extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      width: width ,
+      width: width,
       child: Theme(
-        data: Theme.of(context)
-            .copyWith(colorScheme: const ColorScheme.light(primary: Colors.black)),
+        data: Theme.of(context).copyWith(
+            colorScheme: const ColorScheme.light(primary: Colors.grey)),
         child: DirectionalityComponent(
           child: TextFormField(
-
             keyboardType: textInputType,
             textDirection: TextDirection.rtl,
             textAlign: TextAlign.right,
             onChanged: onChange,
             onTap: onTapIcon,
-
             enabled: enabled,
             validator: valid,
             controller: controller,
@@ -75,18 +77,27 @@ class CustomTextField extends StatelessWidget {
             maxLengthEnforcement:
                 MaxLengthEnforcement.truncateAfterCompositionEnds,
             decoration: InputDecoration(
-
-
-
+              suffixIcon: suffixIcon == null
+                  ? null
+                  : IconButton(
+                      onPressed: onPressedSuffixIcon,
+                      icon: Icon(
+                        suffixIcon,
+                        color: Colors.black,
+                      )),
+              filled: fill,
+              fillColor: fillColor ?? Colors.white,
               labelText: labelText,
-              labelStyle:
-                    TextStyle( color: labelColor ?? Colors.indigo),
+              labelStyle: TextStyle(color: labelColor ?? Colors.indigo),
               hintText: hinText,
-              prefixIcon: icon == null ? null : Icon(icon),
+              prefixIcon: prefixIcon == null ? null : Icon(prefixIcon),
               enabledBorder: OutlineInputBorder(
-                  borderRadius: BorderRadius.circular(30),
-                  borderSide: BorderSide( color: Colors.black87)),
-              border: OutlineInputBorder(borderRadius: BorderRadius.circular(10) , ),
+                  borderRadius: BorderRadius.circular(curveBorder ?? 30),
+                  borderSide:
+                      BorderSide(color: borderColor ?? Colors.grey.shade200)),
+              border: OutlineInputBorder(
+                borderRadius: BorderRadius.circular(10),
+              ),
             ),
           ),
         ),

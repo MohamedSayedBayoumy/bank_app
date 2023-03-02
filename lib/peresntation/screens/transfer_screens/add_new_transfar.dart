@@ -172,6 +172,7 @@ class AddNewTransfer extends StatelessWidget {
     final media = MediaQuery.of(context).size;
     return Scaffold(
       appBar: CustomAppBar(
+        needIconBell: true,
           customSize: media.height * .12,
           title: 'تحويل جديد',
           onPressedButtonBack: () {
@@ -198,6 +199,7 @@ class AddNewTransfer extends StatelessWidget {
                 CustomTextField(
                   controller: TextEditingController(),
                   width: media.width * .3,
+
                 ),
                 DropList(
                     list: currencies, value: currenciesController, width: media.width * .4),

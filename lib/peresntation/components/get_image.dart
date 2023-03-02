@@ -24,7 +24,6 @@ class _GetImageComponentState extends State<GetImageComponent> {
             style: const TextStyle(fontSize: 20 , fontWeight: FontWeight.bold),
           ),
           OutlinedButton(
-
               onPressed: () {
               alertDialog(context ,child: ContentId() ,stringTitle: "اختيار الهوية") ;
               },

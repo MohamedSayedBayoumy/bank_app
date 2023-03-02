@@ -3,34 +3,6 @@ import '../../model.dart';
 
 
 class Controller {
-  static dynamic selectChoiceCountries;
-
-  static dynamic selectChoiceType;
-
-  static dynamic selectChoiceId;
-
-  static dynamic boolSelectChoiceId = false;
-
-
-  static List<String> countries = [
-    "مصر",
-    "السعوديه",
-    "الامارات",
-    "تركيا",
-    "امريكا",
-    "لبنان",
-  ];
-
-  static List<String> type = [
-    "ذكر",
-    "أنثي",
-  ];
-
-  static List<String> typeId = [
-    "جواز سفر",
-    "بطاقة",
-    "رخصة قيادة",
-  ];
 
   static String warning1 =
       'ابقني علي اطلاع بالعروض و الخدمات الخاصة بأمان للصرافة , يمكن التواصل عبر البريد الالكتروني ( يمكن تغير ذلك في اي وقت من الضبط';

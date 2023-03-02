@@ -29,6 +29,8 @@ class AddBalanceScreen extends StatelessWidget {
     final media = MediaQuery.of(context).size;
     return Scaffold(
         appBar: CustomAppBar(
+            needIconBell: true,
+
             customSize: media.height * .12,
             title: 'تغذية المحفظة',
             onPressedButtonBack: () {

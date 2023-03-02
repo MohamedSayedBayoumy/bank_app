@@ -3,13 +3,14 @@ import 'package:flutter/material.dart';
 
 class CustomAppBar extends StatelessWidget implements PreferredSizeWidget{
   String title ;
+  bool? needIconBell ;
   void Function()? onPressedButtonBell ;
   void Function()? onPressedButtonMenu ;
   void Function()? onPressedButtonBack ;
   dynamic customSize;
 
 
-  CustomAppBar({this.onPressedButtonBell ,required this.customSize,required this.onPressedButtonMenu,required this.onPressedButtonBack,required this.title ,Key? key}) : super(key: key);
+  CustomAppBar({required this.needIconBell,this.onPressedButtonBell ,required this.customSize,required this.onPressedButtonMenu,required this.onPressedButtonBack,required this.title ,Key? key}) : super(key: key);
 
 
   @override
@@ -22,12 +23,12 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget{
       title: title ,
       centerTitle: false,
       customSize: media.height * .13,
-      leading: IconButton(
+      leading: needIconBell == true ? IconButton(
           onPressed: onPressedButtonBell ,
           icon: Image.asset(
             "assets/icons/bell.png",
             width: 25,
-          )),
+          )) : null ,
       widgets: [
         IconButton(
             onPressed: onPressedButtonMenu,

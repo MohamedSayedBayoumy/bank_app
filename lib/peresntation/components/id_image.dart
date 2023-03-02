@@ -14,34 +14,18 @@ class ContentId extends StatefulWidget {
 class _ContentIdState extends State<ContentId> {
 
 
+  static dynamic selectChoiceId =typeId[1] ;
 
-  Widget firstWidget() {
-    return Container(color: Colors.red, child: const Text("Hi"));
-  }
-
-  Widget defaultt() {
-    return Container(color: Colors.red, child: const Text("lol"));
-  }
-
-  @override
-  void initState() {
-    widget.widget = defaultt() ;
-
-    super.initState();
-    if (Controller.selectChoiceId == "جواز سفر") {
-      print("lllllllllllllll") ;
-      setState(() {
-        widget.widget = firstWidget() ;
-      });
-    }
-
-  }
-
+  static List<String> typeId = [
+    "جواز سفر",
+    "بطاقة",
+    "رخصة قيادة",
+  ];
   @override
   Widget build(BuildContext context) {
     return Column(
       children: [
-        DropList(list: Controller.typeId, value: Controller.selectChoiceId),
+        DropList(list:  typeId, value: selectChoiceId),
         widget.widget! ,
       ],
     );
