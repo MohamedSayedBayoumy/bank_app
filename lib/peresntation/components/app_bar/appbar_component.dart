@@ -1,7 +1,8 @@
 import 'package:bank_app/peresntation/components/Directionality_component.dart';
-import 'package:bank_app/peresntation/screens/LoginScreen_screen.dart';
+import 'package:bank_app/peresntation/screens/login&register_screens/LoginScreen_screen.dart';
 import 'package:bank_app/peresntation/screens/last_data_screen.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class NaturalAppBar extends StatelessWidget implements PreferredSizeWidget {
   dynamic title;
@@ -50,10 +51,10 @@ class NaturalAppBar extends StatelessWidget implements PreferredSizeWidget {
         flexibleSpace: Container(height: heightFlexibleSpace),
         title: Text(
           title,
-          style: const TextStyle(
+          style: TextStyle(
               fontFamily: 'Ubuntu',
               fontWeight: FontWeight.bold,
-              fontSize: 30,
+              fontSize: 25.sp,
               color: Colors.white),
         ),
       ),

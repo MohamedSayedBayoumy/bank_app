@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class TextComponent extends StatelessWidget {
   String text;
@@ -18,7 +19,8 @@ class TextComponent extends StatelessWidget {
       style: TextStyle(
         fontFamily: fontFamily,
           color: colorText ?? Colors.indigo.shade500,
-          fontSize: fontSize ?? 25,
+          fontSize: fontSize  ?? 25.sp,
+
           fontWeight: isBold == true ? FontWeight.bold : null),
     );
   }

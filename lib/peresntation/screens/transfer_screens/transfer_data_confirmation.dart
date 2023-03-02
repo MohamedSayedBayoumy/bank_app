@@ -1,8 +1,11 @@
+// ignore_for_file: must_be_immutable
+
 import 'package:bank_app/peresntation/components/Directionality_component.dart';
 import 'package:bank_app/peresntation/components/app_bar/custom_app_bar.dart';
 import 'package:bank_app/peresntation/components/genral_padding.dart';
 import 'package:bank_app/peresntation/components/space_component.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import '../../components/app_bar/appbar_component.dart';
 import '../../components/general_button_component.dart';
 import '../../../model.dart';
@@ -65,7 +68,7 @@ class ConfirmationTransferDataScreen extends StatelessWidget {
                             child: TextComponent(
                               text: data[index].address,
                               colorText: Colors.black54,
-                              fontSize: 20.0,
+                              fontSize: 17.0.sp,
                             ),
                           ),
                           SpaceComponent(
@@ -78,7 +81,7 @@ class ConfirmationTransferDataScreen extends StatelessWidget {
                             child: TextComponent(
                               text: data[index].data,
                               colorText: Colors.black87,
-                              fontSize: 20.0,
+                              fontSize: 17.0.sp,
                               isBold: true,
                             ),
                           ),
@@ -92,7 +95,7 @@ class ConfirmationTransferDataScreen extends StatelessWidget {
                     TextComponent(
                       text: "الملاحظات",
                       colorText: Colors.black54,
-                      fontSize: 20.0,
+                      fontSize: 17.0.sp,
                     ),
                     SpaceComponent(
                       width: media.width * .03,
@@ -100,7 +103,7 @@ class ConfirmationTransferDataScreen extends StatelessWidget {
                     TextComponent(
                       text: "",
                       colorText: Colors.black87,
-                      fontSize: 20.0,
+                      fontSize: 17.0.sp,
                       isBold: true,
                     ),
                   ],
@@ -166,12 +169,11 @@ class ConfirmationTransferDataScreen extends StatelessWidget {
                   onPressed: () {},
                   color: Colors.indigo,
                   height: media.height * .05,
-                  child: const Text(
-                    "تأكيد",
-                    style: TextStyle(
-                        color: Colors.white,
-                        fontSize: 20.0,
-                        fontWeight: FontWeight.bold),
+                  child:  TextComponent(
+                    text : "تأكيد" ,
+                     colorText: Colors.white,
+                    fontSize: 18.0.sp,
+                    isBold: true ,
                   ),
                 ),
               ],

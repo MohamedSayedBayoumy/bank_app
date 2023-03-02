@@ -104,8 +104,10 @@ import 'package:bank_app/peresntation/components/text_component.dart';
 import 'package:bank_app/peresntation/components/textfiled_component.dart';
 import 'package:bank_app/peresntation/controller/controllers.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../../model.dart';
+import '../components/app_bar/custom_app_bar.dart';
 import 'last_data_screen.dart';
 
 class AccountScreen extends StatelessWidget {
@@ -141,54 +143,69 @@ class AccountScreen extends StatelessWidget {
                 heightFlexibleSpace: media.height * .19,
                 elevation: 0.0,
                 centerTitle: false,
+                widgets: [
+                  IconButton(
+                      onPressed: () {},
+                      icon: Image.asset(
+                        "assets/icons/menu.png",
+                        width: media.width * .06,
+                      )),
+                ],
                 leading: IconButton(
                     onPressed: () {
                       /// TODO : Some thing
                     },
                     icon: Image.asset(
                       "assets/icons/bell.png",
-                      width: 25,
+                      width: media.height * .03,
                     ))),
             Positioned(
               top: media.height * .18,
               left: 0,
               child: Container(
-                width: media.width,
-                height: media.height * .2,
-                padding: EdgeInsets.only(
-                    right: media.width * .04,
-                    left: media.width * .04,
-                    top: media.height * .08),
-                decoration: BoxDecoration(
-                  color: Colors.grey.shade300,
-                ),
-                child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      Column(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          TextComponent(
-                              text: "Moafaq Ali Khalaf",
-                              colorText: Colors.black87),
-                          SpaceComponent(),
-                          TextComponent(text: "#235641464684")
-                        ],
-                      ),
-                      Column(
-                        children: [
-                          IconButton(
-                              onPressed: () {},
-                              icon: Image.asset(
-                                  "assets/icons/verification_Icon.png")),
-                          SpaceComponent(),
-                          TextComponent(
-                            text: 'موفق علي خاف الله',
-                          ),
-                        ],
-                      ),
-                    ]),
-              ),
+                  width: media.width,
+                  height: media.height * .2,
+                  padding: EdgeInsets.only(
+                      right: media.width * .08,
+                      left: media.width * .08,
+                      top: media.height * .05),
+                  decoration: BoxDecoration(
+                    color: Colors.grey.shade300,
+                  ),
+                  child:
+                  Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      children: [
+                        Column(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          crossAxisAlignment: CrossAxisAlignment.end,
+                          children: [
+                            TextComponent(
+                                text: "Moafaq Ali Khalaf",
+                                fontSize: 18.sp,
+                                colorText: Colors.black87),
+                            SpaceComponent(height: media.height*.002,),
+                            TextComponent(text: "#235641545545", fontSize: 18.sp,colorText: Colors.black87,
+                            )
+                          ],
+                        ),
+                        const Spacer() ,
+                        Column(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                              Image.asset(
+                                    "assets/icons/verification_Icon.png" ,width: media.width*.06)  ,
+                            SpaceComponent(height: media.height*.002,),
+                            TextComponent(
+                              text: 'موفق علي خاف الله',
+                              fontSize: 20.sp,
+                              isBold: true,
+                            ),
+                          ],
+                        ),
+                      ]),
+                  ),
             ),
             Positioned(
               top: media.height * .1,
@@ -205,9 +222,12 @@ class AccountScreen extends StatelessWidget {
               ),
             ),
             Positioned(
-                top: media.height*.32,
-                left: media.width*.38,
-                child: Image.asset("assets/triangular-arrow.png" ,width: 100,)),
+                top: media.height * .33,
+                left: media.width * .39,
+                child: Image.asset(
+                  "assets/triangular-arrow.png",
+                  width: media.width * .2,
+                )),
             Positioned(
                 top: media.height * .2,
                 left: media.width * .30,
@@ -220,52 +240,63 @@ class AccountScreen extends StatelessWidget {
                       },
                       icon: Image.asset("assets/icons/add.png"),
                       color: Colors.white,
-                      iconSize: 10,
+                      iconSize: media.height * .002,
                     ))),
             Positioned(
               top: media.height * .38,
               child: Container(
                   width: media.width,
-                  height: 500,
+                  height: media.height,
                   padding: EdgeInsets.symmetric(
                       horizontal: media.width * .02,
                       vertical: media.height * .02),
                   child: Column(
                     children: [
                       ListView.builder(
+                        physics: const BouncingScrollPhysics(),
                         shrinkWrap: true,
                         itemCount: demoDetailsData.length,
                         itemBuilder: (context, index) {
                           return Padding(
-                            padding: const EdgeInsets.symmetric(vertical: 2),
+                            padding: EdgeInsets.symmetric(
+                                vertical: media.height * .001),
                             child: Container(
                               height: media.height * .06,
                               margin: EdgeInsets.symmetric(
                                   vertical: media.height * .009),
-                              padding:
-                                  const EdgeInsets.symmetric(horizontal: 3),
+                              padding: EdgeInsets.symmetric(
+                                  horizontal: media.width * .05),
                               decoration: BoxDecoration(
                                   borderRadius: BorderRadius.circular(12),
                                   border: Border.all(color: Colors.black87)),
                               child: Row(
                                 mainAxisAlignment:
                                     MainAxisAlignment.spaceBetween,
+                                crossAxisAlignment: CrossAxisAlignment.center,
                                 children: [
                                   SpaceComponent(
                                     width: media.width * .001,
                                   ),
-                                  TextComponent(
-                                    text: demoDetailsData[index].data,
-                                    colorText: Colors.black87,
-                                    isBold: true,
+                                  Container(
+                                    alignment: Alignment.centerRight,
+                                    width: media.width * .5,
+                                    // color: Colors.red,
+                                    child: TextComponent(
+                                      text: demoDetailsData[index].data,
+                                      colorText: Colors.black87,
+                                      isBold: true,
+                                      fontSize: 18.sp,
+                                    ),
                                   ),
-                                  SpaceComponent(
-                                    width: media.width * .2,
-                                  ),
-                                  TextComponent(
-                                    text: demoDetailsData[index].address,
-                                    colorText: Colors.black54,
-                                    isBold: false,
+                                  const Spacer(),
+                                  Container(
+                                    alignment: Alignment.centerRight,
+                                    child: TextComponent(
+                                      text: demoDetailsData[index].address,
+                                      colorText: Colors.black54,
+                                      isBold: false,
+                                      fontSize: 15.sp,
+                                    ),
                                   ),
                                 ],
                               ),

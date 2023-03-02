@@ -27,7 +27,7 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget{
           onPressed: onPressedButtonBell ,
           icon: Image.asset(
             "assets/icons/bell.png",
-            width: 25,
+            width: media.height*.03,
           )) : null ,
       widgets: [
         IconButton(

@@ -2,8 +2,10 @@ import 'package:bank_app/peresntation/components/app_bar/appbar_component.dart';
 import 'package:bank_app/peresntation/components/drop_list_component.dart';
 import 'package:bank_app/peresntation/components/genral_padding.dart';
 import 'package:bank_app/peresntation/components/space_component.dart';
+import 'package:bank_app/peresntation/components/text_component.dart';
 import 'package:bank_app/peresntation/components/textfiled_component.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../../components/general_button_component.dart';
 
@@ -15,13 +17,13 @@ class TransferWayScreen extends StatefulWidget {
 }
 
 class _TransferWayScreenState extends State<TransferWayScreen> {
-  dynamic dataController;
 
-  List<String> data = [
+  static List<String> data = [
     "سد دين",
     "سلف",
     "اخري",
   ];
+  dynamic dataController = data[0];
 
   bool isChecked = false;
 
@@ -46,14 +48,11 @@ class _TransferWayScreenState extends State<TransferWayScreen> {
       body: GeneralPadding(
         child: ListView(
           children: [
-
-            const Text(
-              " طريقة التحويل",
-              textAlign: TextAlign.right,
-              style: TextStyle(
-                  color: Colors.indigo,
-                  fontWeight: FontWeight.bold,
-                  fontSize: 30),
+             TextComponent(
+              text : " طريقة التحويل",
+              isBold: true ,
+              fontSize: 25.sp,
+              colorText: Colors.indigo,
             ),
             SpaceComponent(),
             Row(                                                                /// TODO : Select one check Box
@@ -101,7 +100,7 @@ class _TransferWayScreenState extends State<TransferWayScreen> {
                   width: media.width * 2,
                   onPressed: () {},
                   color: Colors.indigo,
-                  child:  const Text("التالي"),
+                  child:   TextComponent(text : "التالي" ,colorText: Colors.white,fontSize: 15.sp),
                 ) ,
           ],
         ),

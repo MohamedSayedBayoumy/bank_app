@@ -2,6 +2,7 @@ import 'package:bank_app/peresntation/components/Directionality_component.dart';
 import 'package:bank_app/peresntation/components/genral_padding.dart';
 import 'package:bank_app/peresntation/components/space_component.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import '../../components/app_bar/appbar_component.dart';
 import '../../components/app_bar/custom_app_bar.dart';
 import '../../components/general_button_component.dart';
@@ -46,8 +47,7 @@ class DetailsTransfer extends StatelessWidget {
             Container(
               width: media.width,
               height: media.height * .7,
-              padding: const EdgeInsets.all(20),
-              // margin: ,
+              padding:   EdgeInsets.all(media.height*.03),
               decoration: BoxDecoration(
                   color: Colors.indigo,
                   borderRadius: BorderRadius.circular(25)),
@@ -74,7 +74,7 @@ class DetailsTransfer extends StatelessWidget {
                               child: TextComponent(
                                 text: data[index].address,
                                 colorText: Colors.white,
-                                fontSize: 20.0,
+                                fontSize: 18.0.sp,
                               ),
                             ),
                             SpaceComponent(
@@ -87,7 +87,7 @@ class DetailsTransfer extends StatelessWidget {
                               child: TextComponent(
                                 text: data[index].data,
                                 colorText: Colors.white,
-                                fontSize: 20.0,
+                                fontSize: 17.0.sp,
                                 isBold: true,
                               ),
                             ),
@@ -101,7 +101,7 @@ class DetailsTransfer extends StatelessWidget {
                       TextComponent(
                         text: "الملاحظات",
                         colorText: Colors.white,
-                        fontSize: 20.0,
+                        fontSize: 20.0.sp,
                       ),
                       SpaceComponent(
                         width: media.width * .03,
@@ -109,7 +109,7 @@ class DetailsTransfer extends StatelessWidget {
                       TextComponent(
                         text: "",
                         colorText: Colors.white,
-                        fontSize: 20.0,
+                        fontSize: 15.0.sp,
                         isBold: true,
                       ),
                     ],
@@ -182,16 +182,16 @@ class DetailsTransfer extends StatelessWidget {
                     height: media.height * .05,
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.center,
-                      crossAxisAlignment: CrossAxisAlignment.start,
+                      crossAxisAlignment: CrossAxisAlignment.center,
                       children:   [
                         const Icon(Icons.home_outlined) ,
                         SpaceComponent(),
-                        const  Text(
-                          "الرئيسة",
-                          style: TextStyle(
-                              color: Colors.white,
-                              fontSize: 20.0,
-                              fontWeight: FontWeight.bold),
+                          TextComponent(
+                          text : "الرئيسة",
+                          colorText: Colors.white ,
+                          isBold: true ,
+                          fontSize: 18.0.sp,
+
                         ),
                       ],
                     )),
@@ -206,12 +206,12 @@ class DetailsTransfer extends StatelessWidget {
                     children:   [
                       const Icon(Icons.ios_share) ,
                       SpaceComponent(),
-                      const  Text(
-                        "مشاركة",
-                        style: TextStyle(
-                            color: Colors.white,
-                            fontSize: 20.0,
-                            fontWeight: FontWeight.bold),
+                      TextComponent(
+                        text : "مشاركة",
+                        colorText: Colors.white ,
+                        isBold: true ,
+                        fontSize: 18.0.sp,
+
                       ),
                     ],
                   ) ,

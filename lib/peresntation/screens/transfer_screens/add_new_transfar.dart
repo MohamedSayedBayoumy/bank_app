@@ -112,8 +112,10 @@
 // }
 import 'package:bank_app/peresntation/components/general_button_component.dart';
 import 'package:bank_app/peresntation/components/genral_padding.dart';
+import 'package:bank_app/peresntation/components/text_component.dart';
 import 'package:bank_app/peresntation/components/textfiled_component.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../../components/app_bar/custom_app_bar.dart';
 import '../../components/drop_list_component.dart';
@@ -218,7 +220,7 @@ class AddNewTransfer extends StatelessWidget {
               onPressed: () {},
               color: Colors.indigo,
               height: media.height * .05,
-              child: const Text("تحويل" ,style: TextStyle(fontWeight: FontWeight.w900),),
+              child:  TextComponent(text : "تحويل" ,isBold: true ,fontSize: 18.sp ,colorText: Colors.white,),
             ),
           ],
         ),

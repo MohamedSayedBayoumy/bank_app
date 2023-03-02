@@ -8,6 +8,7 @@ import 'package:bank_app/peresntation/components/text_component.dart';
 import 'package:bank_app/peresntation/screens/last_data_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../../components/app_bar/custom_app_bar.dart';
 
@@ -73,7 +74,7 @@ class MyWallet extends StatelessWidget {
                   text: "210.540",
                   isBold: true,
                   colorText: Colors.green,
-                  fontSize: 60.0,
+                  fontSize: 50.0.sp,
                   fontFamily: "Anton",
                 ),
                 SpaceComponent(
@@ -82,7 +83,7 @@ class MyWallet extends StatelessWidget {
                 TextComponent(
                   text: "SDG",
                   colorText: Colors.black,
-                  fontSize: 20.0,
+                  fontSize: 18.0.sp,
                 ),
               ],
             ),
@@ -124,24 +125,23 @@ class MyWallet extends StatelessWidget {
                       child: Container(
                         width: media.width * .03,
                         height: media.height * .09,
-                        decoration: const BoxDecoration(
+                        decoration: BoxDecoration(
                             border: Border(
                                 bottom:
-                                    BorderSide(color: Colors.black87, width: 1))),
+                                    BorderSide(color: Colors.black87, width: 1.sp))),
                         child: Column( children: [
                           Row(
                             children: [
                               IconButton(onPressed: () {}, icon: icons[index]),
-                              TextComponent(text: data[index].nameAr),
+                              TextComponent(text: data[index].nameAr , fontSize: 18.sp,),
                               const Spacer(),
-                              TextComponent(text: data[index].count),
-
+                              TextComponent(text: data[index].count,fontSize: 18.sp,),
                               // IconButton(onPressed: (){}, icon:icons[index] )
                             ],
                           ),
                           Row(
                             mainAxisAlignment: MainAxisAlignment.end,
-                            children: [TextComponent(text: data[index].date)],
+                            children: [TextComponent(text: data[index].date,fontSize: 18.sp,)],
                           ),
                         ]),
                       ),
