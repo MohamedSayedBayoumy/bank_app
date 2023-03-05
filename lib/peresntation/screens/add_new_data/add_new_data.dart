@@ -8,23 +8,24 @@ import '../../components/space_component.dart';
 class AddNewData extends StatelessWidget {
   AddNewData({Key? key}) : super(key: key);
 
-  dynamic banKController;
-  dynamic branchController;
-  dynamic typeAccountController;
 
-  List<String> listOfBank = ["الاهلي", "البركة"];
 
-  List<String> listOfBranch = [
+  static List<String> listOfBank = ["الاهلي", "البركة"];
+
+  static List<String> listOfBranch = [
     "الشيخ زايد",
     "التجمع",
     "مصر الجديده",
   ];
-  List<String> typeAccount = [
+  static List<String> typeAccount = [
     "توفير",
     "ادخال",
     "اخري",
   ];
 
+  dynamic banKController = listOfBank[0];
+  dynamic branchController = listOfBranch[1];
+  dynamic typeAccountController = typeAccount[0] ;
   @override
   Widget build(BuildContext context) {
     final media = MediaQuery.of(context).size;

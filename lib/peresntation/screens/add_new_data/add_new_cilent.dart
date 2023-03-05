@@ -11,16 +11,8 @@ class AddNewClient extends StatelessWidget {
   AddNewClient({Key? key}) : super(key: key);
 
 
-  dynamic receiveCountriesController;
 
-  dynamic receiveCountriesController1;
-
-
-  dynamic receiveCountriesController2;
-  dynamic relationshipController;
-
-
-  List<String> receiveCountries = [
+  static List<String> receiveCountries = [
     "مصر",
     "السعوديه",
     "الامارات",
@@ -29,7 +21,7 @@ class AddNewClient extends StatelessWidget {
     "لبنان",
   ];
 
-  List<String> receiveCountries2 = [
+  static  List<String> receiveCountries2 = [
     "مصر",
     "السعوديه",
     "الامارات",
@@ -37,19 +29,28 @@ class AddNewClient extends StatelessWidget {
     "امريكا",
     "لبنان",
   ];
-  List<String> receiveCountries3 = [
+  static  List<String> receiveCountries3 = [
     "جواز سفر",
     "بطاقة",
     "رخصة قيادة",
   ];
 
-  List<String> relationship = [
+  static  List<String> relationship = [
     "جار",
     "صديق",
     "بن عم",
     "وسيط مني",
     "وسيط من عميل اخر",
   ];
+
+  dynamic receiveCountriesController =receiveCountries[0];
+
+  dynamic receiveCountriesController1 = receiveCountries2[0];
+
+
+  dynamic receiveCountriesController2 = receiveCountries3[0] ;
+  dynamic relationshipController = relationship[0];
+
 
   bool needAdd = false ;
 

@@ -201,7 +201,7 @@ class AddNewTransfer extends StatelessWidget {
                 CustomTextField(
                   controller: TextEditingController(),
                   width: media.width * .3,
-
+                  borderColor: Colors.black,
                 ),
                 DropList(
                     list: currencies, value: currenciesController, width: media.width * .4),
@@ -214,7 +214,9 @@ class AddNewTransfer extends StatelessWidget {
                 controller: TextEditingController(),
                 maxLength: 5,
                 labelText: "ملاحظات",
-                labelColor: Colors.black87),
+                labelColor: Colors.black87 ,
+              borderColor: Colors.black,
+            ),
             SpaceComponent(height: media.height * .03),
             GeneralButton(
               onPressed: () {},

@@ -79,7 +79,7 @@ class AddBalanceScreen extends StatelessWidget {
               ),
               SpaceComponent(height: media.height * .08),
               const Text("المبلغ" , textAlign: TextAlign.right) ,
-              CustomTextField(controller: TextEditingController()),
+              CustomTextField(controller: TextEditingController() , borderColor  :Colors.black87),
               SpaceComponent(height: media.height * .04),
                   const Text(" من البطاقة", textAlign: TextAlign.right) ,
                   DropList(list: id , value: selectChoiceId),

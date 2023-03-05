@@ -51,7 +51,7 @@ class CustomTextField extends StatelessWidget {
       this.length,
       this.height,
       this.styleBorder,
-      this.width})
+      this.width,  this.borderColor})
       : super(key: key);
 
   @override
