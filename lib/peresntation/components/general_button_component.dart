@@ -5,7 +5,7 @@ import 'package:flutter/material.dart';
 import '../../main.dart';
 import '../controller/controllers.dart';
 
-class GeneralButton extends StatefulWidget {
+class GeneralButton extends StatelessWidget {
   void Function()? onPressed;
 
   dynamic child;
@@ -17,34 +17,31 @@ class GeneralButton extends StatefulWidget {
   dynamic width;
 
   dynamic height;
+  dynamic borderStyle;
 
   GeneralButton({
     required this.onPressed,
     required this.child,
     this.elevation,
+    this.borderStyle,
     this.color,
     this.height,
     this.width,
   });
 
   @override
-  State<GeneralButton> createState() => _GeneralButtonState();
-}
-
-class _GeneralButtonState extends State<GeneralButton> {
-  @override
   Widget build(BuildContext context) {
     return Container(
-      width: widget.width,
-      height: widget.height,
+      width:  width,
+      height: height,
       child: ElevatedButton(
-        onPressed: widget.onPressed,
-        child: widget.child,
+        onPressed:  onPressed,
+        child: child,
         style: ButtonStyle(
-            elevation: MaterialStateProperty.all(widget.elevation),
-            backgroundColor: MaterialStateProperty.all(widget.color),
+            elevation: MaterialStateProperty.all(elevation),
+            backgroundColor: MaterialStateProperty.all(color),
             shape: MaterialStateProperty.all(RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(5)))),
+                borderRadius: BorderRadius.circular(borderStyle ?? 5)))),
       ),
     );
   }

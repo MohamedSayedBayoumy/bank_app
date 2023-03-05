@@ -23,12 +23,6 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget{
       title: title ,
       centerTitle: false,
       customSize: media.height * .13,
-      leading: needIconBell == true ? IconButton(
-          onPressed: onPressedButtonBell ,
-          icon: Image.asset(
-            "assets/icons/bell.png",
-            width: media.height*.03,
-          )) : null ,
       widgets: [
         IconButton(
             onPressed: onPressedButtonMenu,

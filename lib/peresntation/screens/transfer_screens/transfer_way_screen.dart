@@ -90,6 +90,7 @@ class _TransferWayScreenState extends State<TransferWayScreen> {
               height: media.height * .03,
             ),
             CustomTextField(
+              borderColor: Colors.black,
               controller: TextEditingController(),                      /// TODO : show this when choose "اخري"
               labelText: "الرجاء كتابة الغرض",
             ),
