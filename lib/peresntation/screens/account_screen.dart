@@ -130,7 +130,7 @@ class AccountScreen extends StatelessWidget {
     Controller.convert();
     return Scaffold(
         drawerDragStartBehavior: DragStartBehavior.down,
-        endDrawer: DrawerComponent(sizeSpace: media.height * .215),
+        endDrawer: DrawerComponent(sizeSpace: media.height * .060),
         body: ListView(
           shrinkWrap: true,
           children: [
