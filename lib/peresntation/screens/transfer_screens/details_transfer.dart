@@ -1,10 +1,12 @@
 import 'package:bank_app/peresntation/components/Directionality_component.dart';
 import 'package:bank_app/peresntation/components/genral_padding.dart';
 import 'package:bank_app/peresntation/components/space_component.dart';
+import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import '../../components/app_bar/appbar_component.dart';
 import '../../components/app_bar/custom_app_bar.dart';
+import '../../components/app_bar/drawer_component.dart';
 import '../../components/general_button_component.dart';
 import '../../../model.dart';
 import '../../components/text_component.dart';
@@ -37,6 +39,8 @@ class DetailsTransfer extends StatelessWidget {
             /// TODO  :
           },
           title: "تفاصيل التحويل"),
+      drawerDragStartBehavior: DragStartBehavior.down,
+      endDrawer:    DrawerComponent(),
       body: DirectionalityComponent(
           child: Padding(
         padding: EdgeInsets.symmetric(

@@ -1,10 +1,12 @@
 import 'package:bank_app/peresntation/components/drop_list_component.dart';
 import 'package:bank_app/peresntation/components/general_button_component.dart';
 import 'package:bank_app/peresntation/components/textfiled_component.dart';
+import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../../components/app_bar/custom_app_bar.dart';
+import '../../components/app_bar/drawer_component.dart';
 import '../../components/genral_padding.dart';
 import '../../components/space_component.dart';
 import '../../components/text_component.dart';
@@ -40,6 +42,8 @@ class AddBalanceScreen extends StatelessWidget {
             onPressedButtonMenu: () {
               /// TODO : SOME THING
             }),
+        drawerDragStartBehavior: DragStartBehavior.down,
+        endDrawer:    DrawerComponent(),
         body: GeneralPadding(
             child: ListView(
                 physics: const BouncingScrollPhysics(),

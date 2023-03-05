@@ -2,9 +2,11 @@ import 'package:bank_app/peresntation/components/Directionality_component.dart';
 import 'package:bank_app/peresntation/components/app_bar/custom_app_bar.dart';
 import 'package:bank_app/peresntation/components/genral_padding.dart';
 import 'package:bank_app/peresntation/components/text_component.dart';
+import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 
 import '../../../model.dart';
+import '../../components/app_bar/drawer_component.dart';
 import '../../components/general_button_component.dart';
 import '../../components/space_component.dart';
 
@@ -33,6 +35,9 @@ class CurrentTransactionsScreen extends StatelessWidget {
             /// TODO  :
           },
           title: "المعاملات السابقة"),
+      drawerDragStartBehavior: DragStartBehavior.down,
+      endDrawer:    DrawerComponent(),
+
       body:   Stack(
           children: [
             GeneralPadding(

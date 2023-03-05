@@ -6,11 +6,13 @@ import 'package:bank_app/peresntation/components/genral_padding.dart';
 import 'package:bank_app/peresntation/components/space_component.dart';
 import 'package:bank_app/peresntation/components/text_component.dart';
 import 'package:bank_app/peresntation/screens/last_data_screen.dart';
+import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../../components/app_bar/custom_app_bar.dart';
+import '../../components/app_bar/drawer_component.dart';
 
 class MyWallet extends StatelessWidget {
   MyWallet({Key? key}) : super(key: key);
@@ -51,7 +53,6 @@ class MyWallet extends StatelessWidget {
     return Scaffold(
       appBar: CustomAppBar(
           needIconBell: true,
-
           customSize: media.height * .12,
           title: 'محفظتي',
           onPressedButtonBack: () {
@@ -60,6 +61,8 @@ class MyWallet extends StatelessWidget {
           onPressedButtonMenu: () {
             /// TODO : SOME THING
           }),
+      drawerDragStartBehavior: DragStartBehavior.down,
+      endDrawer:    DrawerComponent(),
       body: GeneralPadding(
         child: ListView(
           physics: const BouncingScrollPhysics(),

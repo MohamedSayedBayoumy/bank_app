@@ -1,9 +1,11 @@
 import 'dart:ui';
 import 'package:bank_app/peresntation/components/genral_padding.dart';
+import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 
 import '../../model.dart';
 import '../components/app_bar/appbar_component.dart';
+import '../components/app_bar/drawer_component.dart';
 import '../components/share_data_component.dart';
 import '../components/text_component.dart';
 
@@ -46,8 +48,12 @@ class LastDataScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final media = MediaQuery.of(context).size;
+
     return Scaffold(
         //       appBar: NaturalAppBar(title: "التحويلات السابقة"),
+        drawerDragStartBehavior: DragStartBehavior.down,
+        endDrawer: DrawerComponent(),
         body: SafeArea(
       child: ListView.builder(
         itemCount: 3,
@@ -66,6 +72,7 @@ class LastDataScreen extends StatelessWidget {
                     color: Colors.white.withOpacity(.3),
                     borderRadius: BorderRadius.circular(8),
                     border: Border.all(width: 2, color: Color(0xFF))),
+
                 child: Column(
                   children: [
                     Row(

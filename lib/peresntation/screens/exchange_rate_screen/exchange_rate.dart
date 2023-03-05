@@ -1,8 +1,11 @@
+import 'dart:ui';
+
 import 'package:bank_app/peresntation/components/app_bar/custom_app_bar.dart';
 import 'package:bank_app/peresntation/components/general_button_component.dart';
 import 'package:bank_app/peresntation/components/genral_padding.dart';
 import 'package:bank_app/peresntation/components/space_component.dart';
 import 'package:bank_app/peresntation/components/text_component.dart';
+import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 
 import '../../components/app_bar/appbar_component.dart';
@@ -27,7 +30,9 @@ class ExchangeRateScreen extends StatelessWidget {
             onPressedButtonMenu: () {
               /// TODO : SOME THING
             }),
-        endDrawer: const DrawerComponent() ,
+        drawerDragStartBehavior: DragStartBehavior.down,
+        endDrawer:    DrawerComponent(),
+
         body: GeneralPadding(
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,

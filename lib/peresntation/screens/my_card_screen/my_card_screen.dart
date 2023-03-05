@@ -2,10 +2,12 @@ import 'package:bank_app/peresntation/components/app_bar/custom_app_bar.dart';
 import 'package:bank_app/peresntation/components/genral_padding.dart';
 import 'package:bank_app/peresntation/components/space_component.dart';
 import 'package:bank_app/peresntation/components/text_component.dart';
+import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../../../model.dart';
+import '../../components/app_bar/drawer_component.dart';
 
 class MyCard extends StatelessWidget {
    MyCard({Key? key}) : super(key: key);
@@ -25,10 +27,10 @@ class MyCard extends StatelessWidget {
             onPressedButtonBack: () {
               /// TODO :
             },
-            onPressedButtonBell: (){
-              /// TODO :
-            },
             title: "بطاقتي"),
+        drawerDragStartBehavior: DragStartBehavior.down,
+        endDrawer:    DrawerComponent(),
+
         body: GeneralPadding(
           child: ListView(
             children: [

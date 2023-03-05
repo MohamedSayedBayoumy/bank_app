@@ -3,9 +3,11 @@ import 'package:bank_app/peresntation/components/app_bar/custom_app_bar.dart';
 import 'package:bank_app/peresntation/components/genral_padding.dart';
 import 'package:bank_app/peresntation/components/space_component.dart';
 import 'package:bank_app/peresntation/components/text_component.dart';
+import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 
 import '../../../model.dart';
+import '../../components/app_bar/drawer_component.dart';
 import '../../components/general_button_component.dart';
 
 class LastTransaction extends StatelessWidget {
@@ -115,6 +117,8 @@ class LastTransaction extends StatelessWidget {
             /// TODO  :
           },
           title: "المعاملات السابقة"),
+      drawerDragStartBehavior: DragStartBehavior.down,
+      endDrawer:    DrawerComponent(),
       body: Padding(
         padding:
         EdgeInsets.symmetric(horizontal: media.width * .04 ,vertical: media.height*.02),
