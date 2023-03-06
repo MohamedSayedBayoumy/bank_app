@@ -39,6 +39,8 @@ dependencies:
   get_it: ^7.2.0
   translator: ^0.1.7
   flutter_screenutil: ^5.6.1
+  calendar_date_picker2: ^0.3.9
+
 
 dev_dependencies:
   flutter_test:

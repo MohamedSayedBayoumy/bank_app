@@ -9,8 +9,9 @@ class TextComponent extends StatelessWidget {
   dynamic isBold;
   dynamic fontSize;
   dynamic fontFamily;
+  TextDecoration? decoration;
 
-  TextComponent({this.colorText,this.fontFamily, this.isBold,  this.fontSize, required this.text, Key? key})
+  TextComponent({this.colorText,this.decoration,this.fontFamily, this.isBold,  this.fontSize, required this.text, Key? key})
       : super(key: key);
 
   @override
@@ -18,11 +19,11 @@ class TextComponent extends StatelessWidget {
     return Text(
       text,
       textDirection: TextDirection.rtl,
-      style: TextStyle(
+        style: TextStyle(
         fontFamily: fontFamily,
+          decoration: decoration ,
           color: colorText ?? Colors.indigo.shade500,
           fontSize: fontSize  ?? 25.sp,
-
           fontWeight: isBold == true ? FontWeight.bold : null),
     );
   }

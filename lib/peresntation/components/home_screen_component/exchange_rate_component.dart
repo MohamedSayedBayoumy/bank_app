@@ -21,7 +21,9 @@ class ExchangeRateComponent extends StatelessWidget {
           final media = MediaQuery.of(context).size;
           return Padding(
               padding: EdgeInsets.all(media.width*.03) ,
-              child: Column(
+              child: ListView(
+                shrinkWrap: true,
+                physics: const BouncingScrollPhysics(),
                 children: [
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,

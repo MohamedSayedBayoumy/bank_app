@@ -4,10 +4,9 @@ import 'package:bank_app/peresntation/components/Directionality_component.dart';
 import 'package:flutter/material.dart';
 
 class DropList extends StatefulWidget {
+
   final List<String>? list;
-
   dynamic value;
-
   double? height;
   double? width;
   dynamic color;
@@ -49,6 +48,7 @@ class _DropList extends State<DropList> {
       ),
       child: DirectionalityComponent(
         child: DropdownButton(
+          alignment: Alignment.topLeft,
           iconEnabledColor: widget.iconColor ?? Colors.indigo,
           iconSize: media.height * .04,
           itemHeight: 60.0,
@@ -61,6 +61,7 @@ class _DropList extends State<DropList> {
           value: widget.value.toString(),
           items: widget.list!.map((valueItem) {
             return DropdownMenuItem(
+
                 value: valueItem,
                 child: DirectionalityComponent(
                     child: Text(

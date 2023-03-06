@@ -20,14 +20,19 @@ class CustomTextField extends StatelessWidget {
   bool? fill;
   Color? fillColor;
   Color? borderColor;
+  Color? enabledBorderColor;
+  dynamic enabledBorderCurve;
   Color? labelColor;
   InputBorder? styleBorder;
   String? Function(String?)? valid;
   String? Function(String?)? onChange;
+  String? Function(String?)? onFieldSubmitted;
+  String? Function(String?)? onSaved;
   void Function()? onTapIcon;
   bool? enabled;
   TextInputType? textInputType;
   dynamic curveBorder;
+
 
   void Function()? onPressedSuffixIcon;
 
@@ -37,6 +42,8 @@ class CustomTextField extends StatelessWidget {
       this.prefixIcon,
       this.suffixIcon,
       this.onPressedSuffixIcon,
+      this.enabledBorderCurve,
+      this.onFieldSubmitted,
       this.textInputType,
       this.curveBorder,
       this.labelColor,
@@ -53,6 +60,8 @@ class CustomTextField extends StatelessWidget {
       this.length,
       this.height,
       this.styleBorder,
+      this.enabledBorderColor,
+      this.onSaved,
       this.width,  this.borderColor})
       : super(key: key);
 
@@ -60,15 +69,19 @@ class CustomTextField extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       width: width,
+      height: height,
+
       child: Theme(
         data: Theme.of(context).copyWith(
-            colorScheme: const ColorScheme.light(primary: Colors.grey)),
+            colorScheme:   ColorScheme.light(primary: enabledBorderColor?? Colors.grey)),
         child: DirectionalityComponent(
           child: TextFormField(
+            onFieldSubmitted: onFieldSubmitted ,
             keyboardType: textInputType,
             textDirection: TextDirection.rtl,
             textAlign: TextAlign.right,
             onChanged: onChange,
+            onSaved: onSaved,
             onTap: onTapIcon,
             enabled: enabled,
             validator: valid,
@@ -76,8 +89,6 @@ class CustomTextField extends StatelessWidget {
             minLines: maxLength,
             maxLines: minLength,
             maxLength: length,
-            maxLengthEnforcement:
-                MaxLengthEnforcement.truncateAfterCompositionEnds,
             decoration: InputDecoration(
               suffixIcon: suffixIcon == null
                   ? null
@@ -93,12 +104,12 @@ class CustomTextField extends StatelessWidget {
               labelStyle: TextStyle(color: labelColor ?? Colors.indigo),
               hintText: hinText,
               prefixIcon: prefixIcon == null ? null : Icon(prefixIcon),
-              enabledBorder: OutlineInputBorder(
+              enabledBorder: styleBorder ?? OutlineInputBorder(
                   borderRadius: BorderRadius.circular(curveBorder ?? 13),
                   borderSide:
                       BorderSide(color: borderColor ?? Colors.black87)),
-              border: OutlineInputBorder(
-                borderRadius: BorderRadius.circular(10),
+              border: styleBorder ?? OutlineInputBorder(
+                borderRadius: BorderRadius.circular(enabledBorderCurve ?? 10),
               ),
             ),
           ),

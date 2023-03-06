@@ -3,6 +3,7 @@ import 'package:bank_app/peresntation/components/genral_padding.dart';
 import 'package:bank_app/peresntation/components/space_component.dart';
 import 'package:bank_app/peresntation/components/text_component.dart';
 import 'package:bank_app/peresntation/components/textfiled_component.dart';
+import 'package:bank_app/peresntation/screens/login&register_screens/register_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -138,7 +139,7 @@ class LoginScreen extends StatelessWidget {
               children: [
                 TextButton(
                     onPressed: () {
-                      /// TODO : Navigate to Register
+                      Navigator.push(context, MaterialPageRoute(builder: (context) =>   RegisterScreen(),)) ;
                     },
                     child:  TextComponent(
                       text : "اضغط هنا للستجيل",

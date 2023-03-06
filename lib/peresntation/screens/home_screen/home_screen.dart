@@ -5,6 +5,8 @@ import 'package:flutter/material.dart';
 
 import '../../components/home_screen_component/custom_widget.dart';
 
+
+
 class HomeScreen extends StatelessWidget {
   const HomeScreen({Key? key}) : super(key: key);
 
@@ -58,7 +60,7 @@ class HomeScreen extends StatelessWidget {
                       color: Colors.indigo.withOpacity(.5),
                       child: Padding(
                         padding:
-                            EdgeInsets.symmetric(horizontal: media.width * .03),
+                        EdgeInsets.symmetric(horizontal: media.width * .03),
                         child: Row(
                           children: [
                             SpaceComponent(

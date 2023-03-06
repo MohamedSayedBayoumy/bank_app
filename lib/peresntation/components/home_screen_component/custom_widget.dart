@@ -1,6 +1,7 @@
 import 'package:bank_app/peresntation/components/general_button_component.dart';
 import 'package:bank_app/peresntation/components/home_screen_component/currency_calculator_component.dart';
 import 'package:bank_app/peresntation/components/text_component.dart';
+import 'package:bank_app/peresntation/text2.dart';
 import 'package:flutter/material.dart';
 
 
@@ -20,6 +21,7 @@ class _CustomNewsState extends State<CustomNews> {
   Widget build(BuildContext context) {
     final media = MediaQuery.of(context).size;
     return   Container(
+      height: media.height,
       color: Colors.indigo.shade900.withOpacity(.5),
       child: Column(
         children: [

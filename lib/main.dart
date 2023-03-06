@@ -19,6 +19,7 @@ import 'package:bank_app/peresntation/screens/transfer_screens/transfer_data_con
 import 'package:bank_app/peresntation/screens/transfer_screens/transfer_way_screen.dart';
 import 'package:bank_app/peresntation/screens/wallet/add_balance_screen.dart';
 import 'package:bank_app/peresntation/screens/wallet/wallet_details.dart';
+import 'package:bank_app/peresntation/test.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -44,7 +45,7 @@ class MyApp extends StatelessWidget {
             theme: ThemeData(
               primarySwatch: Colors.blue,
             ),
-            home: RegisterScreen(),
+            home: HomeScreen(),
           ) ;
         });
   }
