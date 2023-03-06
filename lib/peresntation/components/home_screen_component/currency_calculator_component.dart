@@ -11,8 +11,6 @@ class CurrencyCalculatorComponent extends StatefulWidget {
 }
 
 class _CurrencyCalculatorComponentState extends State<CurrencyCalculatorComponent> {
-  @override
-
   static List<String> country = [
     "مصر",
     "السعوديه",
@@ -37,6 +35,7 @@ class _CurrencyCalculatorComponentState extends State<CurrencyCalculatorComponen
     return Colors.blue;
   }
 
+  @override
   Widget build(BuildContext context) {
     final media = MediaQuery.of(context).size;
     return   Row(
@@ -85,7 +84,7 @@ class _CurrencyCalculatorComponentState extends State<CurrencyCalculatorComponen
                         colorText: Colors.white,
                       ),
                       Checkbox(
-                        shape: CircleBorder(),
+                        shape: const CircleBorder(),
                         checkColor: Colors.white,
                         fillColor: MaterialStateProperty.resolveWith(getColor),
                         value: isChecked,

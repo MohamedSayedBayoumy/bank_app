@@ -7,8 +7,11 @@ import 'package:bank_app/peresntation/components/home_screen_component/custom_wi
 import 'package:bank_app/peresntation/screens/exchange_rate_screen/exchange_rate.dart';
 import 'package:bank_app/peresntation/screens/home_screen/home_screen.dart';
 import 'package:bank_app/peresntation/screens/last_data_screen.dart';
+import 'package:bank_app/peresntation/screens/login&register_screens/login_screen.dart';
+import 'package:bank_app/peresntation/screens/login&register_screens/register_screen.dart';
 import 'package:bank_app/peresntation/screens/my_card_screen/my_card_screen.dart';
 import 'package:bank_app/peresntation/screens/transactions_screens/current_transactions.dart';
+import 'package:bank_app/peresntation/screens/transactions_screens/last_transactions.dart';
 import 'package:bank_app/peresntation/screens/transfer_screens/add_new_transfar.dart';
 import 'package:bank_app/peresntation/screens/transfer_screens/details_transfer.dart';
 import 'package:bank_app/peresntation/screens/transfer_screens/tranfer_screen.dart';
@@ -36,12 +39,12 @@ class MyApp extends StatelessWidget {
         splitScreenMode: true,
         builder: (context, child) {
           return MaterialApp(
-
             title: 'Flutter Demo',
+            debugShowCheckedModeBanner: false,
             theme: ThemeData(
               primarySwatch: Colors.blue,
             ),
-            home: AccountScreen(),
+            home: RegisterScreen(),
           ) ;
         });
   }

@@ -7,7 +7,6 @@ import 'package:bank_app/peresntation/components/space_component.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import '../../components/app_bar/appbar_component.dart';
 import '../../components/app_bar/drawer_component.dart';
 import '../../components/general_button_component.dart';
 import '../../../model.dart';

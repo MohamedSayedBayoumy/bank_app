@@ -2,7 +2,7 @@ import 'package:bank_app/peresntation/components/general_button_component.dart';
 import 'package:bank_app/peresntation/components/home_screen_component/currency_calculator_component.dart';
 import 'package:bank_app/peresntation/components/text_component.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
+
 
 import 'exchange_rate_component.dart';
 
@@ -36,7 +36,7 @@ class _CustomNewsState extends State<CustomNews> {
                     if (change == true) {
                       setState(() {
                         change = false;
-                        print("hi");
+
                       });
                     }
                   },
@@ -57,7 +57,7 @@ class _CustomNewsState extends State<CustomNews> {
                     if (change == false) {
                       setState(() {
                         change = true;
-                        print("hi");
+
                       });
                     }
                   },

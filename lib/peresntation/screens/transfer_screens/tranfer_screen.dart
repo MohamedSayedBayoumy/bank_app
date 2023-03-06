@@ -1,3 +1,5 @@
+// ignore_for_file: must_be_immutable
+
 import 'package:bank_app/peresntation/components/drop_list_component.dart';
 import 'package:bank_app/peresntation/components/genral_padding.dart';
 import 'package:bank_app/peresntation/components/space_component.dart';
@@ -6,7 +8,7 @@ import 'package:bank_app/peresntation/components/textfiled_component.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import '../../components/app_bar/appbar_component.dart';
+import '../../components/app_bar/custom_app_bar.dart';
 import '../../components/app_bar/drawer_component.dart';
 import '../../components/general_button_component.dart';
 
@@ -30,9 +32,19 @@ class TransferScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     final media = MediaQuery.of(context).size;
     return Scaffold(
-      appBar: NaturalAppBar(title: "التحويل"),
+      appBar: CustomAppBar(
+          needIconBell: true,
+          customSize: media.height * .12,
+          title: 'تحويل جديد',
+          onPressedButtonBack: () {
+            /// TODO : SOME THING
+          },
+          onPressedButtonMenu: () {
+            /// TODO : SOME THING
+          }),
+
       drawerDragStartBehavior: DragStartBehavior.down,
-      endDrawer:    DrawerComponent(),
+      endDrawer:  DrawerComponent(),
       body: GeneralPadding(
         child: ListView(
           children: [

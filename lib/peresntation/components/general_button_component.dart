@@ -1,9 +1,7 @@
-// ignore_for_file: file_names
+// ignore_for_file: file_names, must_be_immutable, sized_box_for_whitespace
 
 import 'package:flutter/material.dart';
 
-import '../../main.dart';
-import '../controller/controllers.dart';
 
 class GeneralButton extends StatelessWidget {
   void Function()? onPressed;
@@ -19,7 +17,7 @@ class GeneralButton extends StatelessWidget {
   dynamic height;
   dynamic borderStyle;
 
-  GeneralButton({
+  GeneralButton({Key? key,
     required this.onPressed,
     required this.child,
     this.elevation,
@@ -27,7 +25,7 @@ class GeneralButton extends StatelessWidget {
     this.color,
     this.height,
     this.width,
-  });
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

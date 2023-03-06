@@ -1,4 +1,3 @@
-import 'package:bank_app/peresntation/components/app_bar/appbar_component.dart';
 import 'package:bank_app/peresntation/components/general_button_component.dart';
 import 'package:bank_app/peresntation/components/space_component.dart';
 import 'package:bank_app/peresntation/components/text_component.dart';
@@ -28,6 +27,7 @@ class HomeScreen extends StatelessWidget {
             padding: EdgeInsets.symmetric(horizontal: media.width * .03),
             child: Center(
               child: ListView(
+                physics: const BouncingScrollPhysics(),
                 shrinkWrap: true,
                 children: [
                   Image.asset("assets/full_logo.jpg",

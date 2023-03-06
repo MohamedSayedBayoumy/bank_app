@@ -1,3 +1,5 @@
+// ignore_for_file: must_be_immutable
+
 import 'package:bank_app/peresntation/components/app_bar/appbar_component.dart';
 import 'package:flutter/material.dart';
 
@@ -20,6 +22,7 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget{
   Widget build(BuildContext context) {
     final media = MediaQuery.of(context).size;
     return NaturalAppBar(
+      needIconBell: needIconBell,
       title: title ,
       centerTitle: false,
       customSize: media.height * .13,

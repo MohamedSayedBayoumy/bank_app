@@ -1,10 +1,9 @@
-import 'dart:ui';
+// ignore_for_file: sized_box_for_whitespace, must_be_immutable
+
 
 import 'package:bank_app/peresntation/components/space_component.dart';
 import 'package:bank_app/peresntation/components/text_component.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class DrawerComponent extends StatelessWidget {
   dynamic sizeSpace;
@@ -15,6 +14,7 @@ class DrawerComponent extends StatelessWidget {
   Widget build(BuildContext context) {
     final media = MediaQuery.of(context).size;
     return ListView(
+      physics: const NeverScrollableScrollPhysics(),
       children: [
         SpaceComponent(height: sizeSpace ?? 0 ) ,
         Stack(

@@ -1,10 +1,12 @@
-import 'package:bank_app/peresntation/components/app_bar/appbar_component.dart';
+// ignore_for_file: must_be_immutable
+
 import 'package:bank_app/peresntation/components/drop_list_component.dart';
 import 'package:bank_app/peresntation/components/genral_padding.dart';
 import 'package:bank_app/peresntation/components/space_component.dart';
 import 'package:bank_app/peresntation/components/textfiled_component.dart';
 import 'package:flutter/material.dart';
 
+import '../../components/app_bar/custom_app_bar.dart';
 import 'add_new_data.dart';
 
 class AddNewClient extends StatelessWidget {
@@ -60,7 +62,17 @@ class AddNewClient extends StatelessWidget {
         .of(context)
         .size;
     return Scaffold(
-      appBar: NaturalAppBar(title: "اضافة مستفيد جديد"),
+      // appBar: NaturalAppBar(title: "اضافة مستفيد جديد" ,needIconBell: false),
+      appBar: CustomAppBar(
+          needIconBell: true,
+          customSize: media.height * .12,
+          title: "اضافة مستفيد جديد",
+          onPressedButtonBack: () {
+            /// TODO : SOME THING
+          },
+          onPressedButtonMenu: () {
+            /// TODO : SOME THING
+          }),
       body: GeneralPadding(
         child: ListView(
 

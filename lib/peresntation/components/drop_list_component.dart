@@ -1,7 +1,6 @@
 // ignore_for_file: must_be_immutable
 
 import 'package:bank_app/peresntation/components/Directionality_component.dart';
-import 'package:bank_app/peresntation/controller/controllers.dart';
 import 'package:flutter/material.dart';
 
 class DropList extends StatefulWidget {
@@ -46,7 +45,7 @@ class _DropList extends State<DropList> {
       decoration: BoxDecoration(
         color: widget.color ?? Colors.white,
         border: Border.all(color:  widget.colorBorder ?? Colors.black87),
-        borderRadius: BorderRadius.circular(widget.styleBorder ?? 30),
+        borderRadius: BorderRadius.circular(widget.styleBorder ?? 15),
       ),
       child: DirectionalityComponent(
         child: DropdownButton(
@@ -69,9 +68,11 @@ class _DropList extends State<DropList> {
                 )));
           }).toList(),
           onChanged: (val) {
+
+            /// TODO : ------------
             setState(() {
               widget.value = val;
-              print(widget.value);
+
             });
           },
         ),

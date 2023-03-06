@@ -1,3 +1,5 @@
+// ignore_for_file: must_be_immutable
+
 import 'package:bank_app/peresntation/components/Directionality_component.dart';
 import 'package:bank_app/peresntation/components/app_bar/custom_app_bar.dart';
 import 'package:bank_app/peresntation/components/genral_padding.dart';

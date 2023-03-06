@@ -14,6 +14,7 @@ class ExchangeRateComponent extends StatelessWidget {
     return SizedBox(
       height: media.height*.5,
       child: ListView.builder(
+        physics: const BouncingScrollPhysics(),
         shrinkWrap: true,
         itemCount: 15,
         itemBuilder: (context, index) {

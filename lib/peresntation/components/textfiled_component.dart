@@ -1,3 +1,5 @@
+// ignore_for_file: sized_box_for_whitespace
+
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
@@ -92,9 +94,9 @@ class CustomTextField extends StatelessWidget {
               hintText: hinText,
               prefixIcon: prefixIcon == null ? null : Icon(prefixIcon),
               enabledBorder: OutlineInputBorder(
-                  borderRadius: BorderRadius.circular(curveBorder ?? 30),
+                  borderRadius: BorderRadius.circular(curveBorder ?? 13),
                   borderSide:
-                      BorderSide(color: borderColor ?? Colors.grey.shade200)),
+                      BorderSide(color: borderColor ?? Colors.black87)),
               border: OutlineInputBorder(
                 borderRadius: BorderRadius.circular(10),
               ),

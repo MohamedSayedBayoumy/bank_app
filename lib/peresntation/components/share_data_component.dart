@@ -1,3 +1,5 @@
+// ignore_for_file: must_be_immutable
+
 import 'package:bank_app/peresntation/components/text_component.dart';
 import 'package:flutter/material.dart';
 

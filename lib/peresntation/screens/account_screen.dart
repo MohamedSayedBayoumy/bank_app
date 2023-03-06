@@ -96,21 +96,15 @@
 // }
 
 import 'package:bank_app/peresntation/components/app_bar/appbar_component.dart';
-import 'package:bank_app/peresntation/components/general_button_component.dart';
-import 'package:bank_app/peresntation/components/genral_padding.dart';
-import 'package:bank_app/peresntation/components/get_image.dart';
 import 'package:bank_app/peresntation/components/space_component.dart';
 import 'package:bank_app/peresntation/components/text_component.dart';
-import 'package:bank_app/peresntation/components/textfiled_component.dart';
 import 'package:bank_app/peresntation/controller/controllers.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../../model.dart';
-import '../components/app_bar/custom_app_bar.dart';
 import '../components/app_bar/drawer_component.dart';
-import 'last_data_screen.dart';
 
 class AccountScreen extends StatelessWidget {
   const AccountScreen({Key? key}) : super(key: key);
@@ -142,6 +136,7 @@ class AccountScreen extends StatelessWidget {
                   color: Colors.white,
                 ),
                 NaturalAppBar(
+                  needIconBell: false,
                     title: "أدارة الحساب",
                     toolbarHeight: media.height * .13,
                     heightFlexibleSpace: media.height * .19,

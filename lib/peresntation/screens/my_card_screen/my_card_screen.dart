@@ -6,11 +6,10 @@ import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-import '../../../model.dart';
 import '../../components/app_bar/drawer_component.dart';
 
 class MyCard extends StatelessWidget {
-   MyCard({Key? key}) : super(key: key);
+   const MyCard({Key? key}) : super(key: key);
 
 
 

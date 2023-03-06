@@ -1,4 +1,3 @@
-import 'dart:ui';
 
 import 'package:bank_app/peresntation/components/app_bar/custom_app_bar.dart';
 import 'package:bank_app/peresntation/components/general_button_component.dart';
@@ -8,8 +7,6 @@ import 'package:bank_app/peresntation/components/text_component.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 
-import '../../components/app_bar/appbar_component.dart';
-import '../../components/app_bar/dad.dart';
 import '../../components/app_bar/drawer_component.dart';
 import '../../components/home_screen_component/exchange_rate_component.dart';
 

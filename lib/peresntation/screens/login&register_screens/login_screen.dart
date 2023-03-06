@@ -49,6 +49,8 @@ class LoginScreen extends StatelessWidget {
               curveBorder: 6.0.sp,
               fill: true,
               fillColor: Colors.grey.shade300,
+              borderColor: Colors.grey.shade200,
+
             ),
             SpaceComponent(
               height: media.height * .03,
@@ -64,6 +66,7 @@ class LoginScreen extends StatelessWidget {
               curveBorder: 6.0.sp,
               fill: true,
               fillColor: Colors.grey.shade300,
+              borderColor: Colors.grey.shade200,
             ),
             Row(
               children: [

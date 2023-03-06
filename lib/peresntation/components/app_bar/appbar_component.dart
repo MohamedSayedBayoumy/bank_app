@@ -1,3 +1,5 @@
+// ignore_for_file: must_be_immutable, sized_box_for_whitespace
+
 import 'package:bank_app/peresntation/components/Directionality_component.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -14,12 +16,14 @@ class NaturalAppBar extends StatefulWidget implements PreferredSizeWidget {
   Widget? leading;
   dynamic centerTitle;
   dynamic colorIconDrawer = true;
+  bool? needIconBell ;
 
   List<Widget>? widgets;
 
   NaturalAppBar(
       {Key? key,
       this.title,
+      required this.needIconBell,
       this.elevation,
       this.leading,
       this.child,
@@ -50,7 +54,7 @@ class _NaturalAppBarState extends State<NaturalAppBar> {
         toolbarHeight: widget.toolbarHeight ?? media.height * .1,
         backgroundColor: Colors.indigo,
         elevation: widget.elevation ?? 15.0,
-        leading: Builder(
+        leading:  widget.needIconBell == true ? Builder(
           builder: (context) {
             return IconButton(
                 onPressed: () {
@@ -65,7 +69,7 @@ class _NaturalAppBarState extends State<NaturalAppBar> {
                   color: Colors.white,
                 ));
           },
-        ),
+        ): null,
         actions: widget.widgets,
         flexibleSpace: Container(
           height: widget.heightFlexibleSpace,

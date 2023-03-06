@@ -1,6 +1,6 @@
-import 'package:bank_app/peresntation/components/Directionality_component.dart';
+// ignore_for_file: must_be_immutable
+
 import 'package:bank_app/peresntation/components/app_bar/custom_app_bar.dart';
-import 'package:bank_app/peresntation/components/genral_padding.dart';
 import 'package:bank_app/peresntation/components/space_component.dart';
 import 'package:bank_app/peresntation/components/text_component.dart';
 import 'package:flutter/gestures.dart';
@@ -167,12 +167,14 @@ class LastTransaction extends StatelessWidget {
                             )
                           ],
                         ) ,
-                        SpaceComponent(width: media.width*.15,) ,
+                        SpaceComponent(width: media.width*.12,) ,
                         Column(
                           crossAxisAlignment: CrossAxisAlignment.end,
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
-                            TextComponent(text: demoDataList[index].name ,colorText: Colors.black87 ,isBold: true,) ,
+                            SizedBox(
+                              width: media.width*.4,
+                              child: TextComponent(text: demoDataList[index].name ,colorText: Colors.black87 ,isBold: true,fontSize: 23.0) ,) ,
                             SpaceComponent(width: media.width*.03,) ,
                             TextComponent(
                               text: demoDataList[index].date,

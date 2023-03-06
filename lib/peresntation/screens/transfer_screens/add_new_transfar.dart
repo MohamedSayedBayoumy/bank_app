@@ -110,6 +110,8 @@
 //     );
 //   }
 // }
+// ignore_for_file: must_be_immutable
+
 import 'package:bank_app/peresntation/components/general_button_component.dart';
 import 'package:bank_app/peresntation/components/genral_padding.dart';
 import 'package:bank_app/peresntation/components/text_component.dart';

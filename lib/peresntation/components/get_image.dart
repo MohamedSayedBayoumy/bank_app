@@ -6,7 +6,7 @@ import 'alert.dart';
 
 class GetImageComponent extends StatefulWidget {
   final String text ;
-    GetImageComponent({required this.text,Key? key}) : super(key: key);
+    const GetImageComponent({required this.text,Key? key}) : super(key: key);
 
   @override
   State<GetImageComponent> createState() => _GetImageComponentState();
