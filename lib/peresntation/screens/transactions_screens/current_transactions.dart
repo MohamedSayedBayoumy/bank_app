@@ -1,25 +1,42 @@
-// ignore_for_file: must_be_immutable
+// ignore_for_file: must_be_immutable, sized_box_for_whitespace
 
 import 'package:bank_app/peresntation/components/Directionality_component.dart';
 import 'package:bank_app/peresntation/components/app_bar/custom_app_bar.dart';
 import 'package:bank_app/peresntation/components/genral_padding.dart';
 import 'package:bank_app/peresntation/components/text_component.dart';
-import 'package:flutter/gestures.dart';
+
 import 'package:flutter/material.dart';
 
 import '../../../model.dart';
-import '../../components/app_bar/drawer_component.dart';
 import '../../components/general_button_component.dart';
-import '../../components/space_component.dart';
 
-class CurrentTransactionsScreen extends StatelessWidget {
-  CurrentTransactionsScreen({Key? key}) : super(key: key);
+class CurrentTransactionsScreen  extends StatelessWidget {
+  bool showWidget;
 
-  List data = [
-    DetailsDataModel(address: "المستفيد", data: "محمد عبدالله"),
-    DetailsDataModel(address: "الوقت و التاريخ", data: "15/3/2023"),
-    DetailsDataModel(address: "الرقم المرجعي", data: "5555 9999 5559 #"),
-    DetailsDataModel(address: "حالة العمليه", data: "تم التسليم"),
+  CurrentTransactionsScreen ({required this.showWidget, Key? key})
+      : super(key: key);
+
+  List<DetailsDataModel> data = [
+    DetailsDataModel(address: "الرقم التسلسلي للعملية", data: "محمد عبدالله"),
+    DetailsDataModel(
+        address: "تاريخ و وقت تنفيذ العمليه", data: "15/3/2023 - 12:30"),
+    DetailsDataModel(address: "اسم المستلم", data: "احمد علي"),
+    DetailsDataModel(address: "رقم هاتف المستلم", data: "989898989"),
+    DetailsDataModel(address: "البلد و المدينه", data: "السودان - الخرطوم"),
+  ];
+
+  List<DetailsDataModel> data2 = [
+    DetailsDataModel(address: "اسم البنك", data: "بنك البركة"),
+    DetailsDataModel(address: "الفرع", data: "الرئيسية"),
+    DetailsDataModel(address: "رقم الحساب", data: "12345"),
+  ];
+
+  List<DetailsDataModel> data3 = [
+    DetailsDataModel(address: "المبلغ بعملة المرسل", data: "1000"),
+    DetailsDataModel(address: "المبلغ بالجنية", data: "15000"),
+    DetailsDataModel(address: "سعر الصرف", data: "150"),
+    DetailsDataModel(address: "رسوم العملية", data: "12"),
+    DetailsDataModel(address: "اجمالي المدفوع", data: "1234"),
   ];
 
   @override
@@ -36,202 +53,201 @@ class CurrentTransactionsScreen extends StatelessWidget {
             /// TODO  :
           },
           title: "المعاملات السابقة"),
-      drawerDragStartBehavior: DragStartBehavior.down,
-      endDrawer:    DrawerComponent(),
-      // ListView.builder(
-      //   shrinkWrap: true,
-      //   physics: const BouncingScrollPhysics(),
-      //   itemCount: 13,
-      //   itemBuilder: (context, index) {
-      //     final detailsData = Controller.demoDetailsData[index];
-      //     return Column(
-      //       children: [
-      //         Row(
-      //           mainAxisAlignment: MainAxisAlignment.spaceBetween,
-      //           children: [
-      //             Text(
-      //               detailsData.data,
-      //               style: const TextStyle(
-      //                   fontWeight: FontWeight.bold, fontSize: 20),
-      //             ),
-      //             Text(
-      //               detailsData.address,
-      //               style: const TextStyle(fontSize: 20),
-      //             ),
-      //           ],
-      //         ),
-      //         const Divider(),
-      //       ],
-      //     );
-      //   },
-      // ),
-      body:   Stack(
-          children: [
-            GeneralPadding(
-              child: Positioned(
-                child: Container(
-                  width: media.width,
-                  height: media.height * .7,
-                  decoration: BoxDecoration(
-                      color: Colors.white,
-                      borderRadius: BorderRadiusDirectional.circular(25)),
-                  child: Column(
-                    children: [
-                      Container(
-                        width: media.width,
-                        height: media.height * .16,
-                        padding: EdgeInsets.symmetric(horizontal: media.width * .02),
-                        color: Colors.white,
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          crossAxisAlignment: CrossAxisAlignment.end,
-                          children: [
-                            TextComponent(
-                              text: "أمن .. بسيط .. سريع",
-                              isBold: true,
-                            ),
-                            Image.asset("assets/logo2.jpg", width: media.width * .2)
-                          ],
-                        ),
-                      ),
-                      SpaceComponent(
-                        height: media.height * .07,
-                      ),
-                      ListView.builder(
-                        shrinkWrap: true,
-                        itemCount: data.length,
-                        itemBuilder: (context, index) {
-                          return DirectionalityComponent(
-                            child: Container(
-                              width: media.width,
-                              height: media.height * .05,
-                              padding:
-                              EdgeInsets.symmetric(horizontal: media.width * .02),
-                              margin: EdgeInsets.symmetric(
-                                  horizontal: media.width * .03,
-                                  vertical: media.height * .02),
-                              decoration: const BoxDecoration(
-                                  border: Border(
-                                      bottom: BorderSide(color: Colors.black87))),
-                              child: Row(
-                                mainAxisAlignment: MainAxisAlignment.start,
-                                children: [
-                                  Container(
-                                    width: media.width * .30,
-                                    height: media.height * .03,
-                                    alignment: Alignment.centerRight,
-                                    child: TextComponent(
-                                      text: data[index].address,
-                                      colorText: Colors.black,
-                                      fontSize: 20.0,
-                                    ),
-                                  ),
-                                  SpaceComponent(
-                                    width: media.width * .07,
-                                  ),
-                                  Container(
-                                    width: media.width * .317,
-                                    height: media.height * .03,
-                                    alignment: Alignment.centerRight,
-                                    child: TextComponent(
-                                      text: data[index].data,
-                                      colorText: Colors.black87,
-                                      fontSize: 20.0,
-                                      isBold: true,
-                                    ),
-                                  ),
-                                ],
-                              ),
-                            ),
-                          );
-                        },
-                      ),
-
-                    ],
-                  ),
-                ),
-              ),
-            ),
-            Positioned(
-              top: media.height*.7 ,
-              // left: media.width*.01 ,
-              child:  Container(
-                width: media.width,
-                padding: EdgeInsets.symmetric(horizontal: media.width*.03),
-                // color: Colors.red,
-                child: Row(
+      body: ListView(
+        shrinkWrap: true,
+        physics: const BouncingScrollPhysics(),
+        children: [
+          GeneralPadding(
+            child: Column(
+              children: [
+                Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  crossAxisAlignment: CrossAxisAlignment.end,
                   children: [
-                    GeneralButton(
-                      onPressed: () {},
-                      color: Colors.indigo,
-                      height: media.height * .05,
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children:   [
-                          const  Text(
-                            "استفسار",
-                            style: TextStyle(
-                                color: Colors.white,
-                                fontSize: 20.0,
-                                fontWeight: FontWeight.bold),
-                          ),
-                          SpaceComponent(),
-                          const Icon(Icons.error_outline) ,
-
-                        ],
-                      ) ,
+                    TextComponent(
+                      text: "أمن .. بسيط .. سريع",
+                      isBold: true,
                     ),
-                    GeneralButton(
-                      onPressed: () {},
-                      color: Colors.indigo,
-                      height: media.height * .05,
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children:   [
-                          const  Text(
-                            "التفاصيل",
-                            style: TextStyle(
-                                color: Colors.white,
-                                fontSize: 20.0,
-                                fontWeight: FontWeight.bold),
-                          ),
-                          SpaceComponent(),
-                          const Icon(Icons.wysiwyg_rounded) ,
-
-                        ],
-                      ) ,
-                    ),
-                    GeneralButton(
-                      onPressed: () {},
-                      color: Colors.indigo,
-                      height: media.height * .05,
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children:   [
-                          const  Text(
-                            "مشاركة",
-                            style: TextStyle(
-                                color: Colors.white,
-                                fontSize: 20.0,
-                                fontWeight: FontWeight.bold),
-                          ),
-
-                          SpaceComponent(),
-                          const Icon(Icons.ios_share) ,
-                        ],
-                      ) ,
-                    ),
+                    Image.asset("assets/logo2.jpg", width: media.width * .2)
                   ],
                 ),
-              ),),
-          ],
+                ListView.builder(
+                  physics: const BouncingScrollPhysics(),
+                  shrinkWrap: true,
+                  itemCount: data.length,
+                  itemBuilder: (context, index) {
+                    return Container(
+                      height: media.height * .05,
+                      child: Row(
+                        children: [
+                          Expanded(
+                            flex: 2,
+                            child: Container(
+                              alignment: Alignment.centerLeft,
+                              child: TextComponent(
+                                text: data[index].data,
+                                colorText: Colors.black54,
+                                fontSize: 17.0,
+                              ),
+                            ),
+                          ),
+                          Expanded(
+                            flex: 3,
+                            child: TextComponent(
+                              text: data[index].address,
+                              colorText: Colors.black87,
+                              fontSize: 17.0,
+                              isBold: true,
+                            ),
+                          ),
+                        ],
+                      ),
+                    );
+                  },
+                ),
+                Divider(color: Colors.black, height: media.height * .01),
+                AnimatedCrossFade(
+                    firstChild: ListView.builder(
+                      physics: const BouncingScrollPhysics(),
+                      shrinkWrap: true,
+                      itemCount: data2.length,
+                      itemBuilder: (context, index) {
+                        return Container(
+                          height: media.height * .05,
+                          child: Row(
+                            children: [
+                              Expanded(
+                                flex: 2,
+                                child: Container(
+                                  alignment: Alignment.centerLeft,
+                                  child: TextComponent(
+                                    text: data2[index].data,
+                                    colorText: Colors.black54,
+                                    fontSize: 17.0,
+                                  ),
+                                ),
+                              ),
+                              Expanded(
+                                flex: 5,
+                                child: TextComponent(
+                                  text: data2[index].address,
+                                  colorText: Colors.black87,
+                                  fontSize: 17.0,
+                                  isBold: true,
+                                ),
+                              ),
+                            ],
+                          ),
+                        );
+                      },
+                    ),
+                    secondChild: Container(),
+                    crossFadeState: showWidget == true
+                        ? CrossFadeState.showFirst
+                        : CrossFadeState.showSecond,
+                    duration: const Duration(milliseconds: 800)),
+                Divider(color: Colors.black, height: media.height * .01),
+                ListView.builder(
+                  physics: const BouncingScrollPhysics(),
+                  shrinkWrap: true,
+                  itemCount: data3.length,
+                  itemBuilder: (context, index) {
+                    return Container(
+                      width: media.width,
+                      height: media.height * .05,
+                      child: Row(
+                        children: [
+                          Expanded(
+                            flex: 2,
+                            child: Container(
+                              alignment: Alignment.centerLeft,
+                              child: TextComponent(
+                                text: data3[index].data,
+                                colorText: Colors.black54,
+                                fontSize: 17.0,
+                              ),
+                            ),
+                          ),
+                          Expanded(
+                            flex: 5,
+                            child: TextComponent(
+                              text: data3[index].address,
+                              colorText: Colors.black87,
+                              fontSize: 17.0,
+                              isBold: true,
+                            ),
+                          ),
+                        ],
+                      ),
+                    );
+                  },
+                ),
+              ],
+            ),
+          ),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceAround,
+            children: [
+              GeneralButton(
+                onPressed: () {},
+                color: Colors.indigo,
+                width: media.width / 4,
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    TextComponent(
+                      text: "استفسار",
+                      colorText: Colors.white,
+                      fontSize: 16.0,
+                      isBold: true,
+                    ),
+                    const Icon(Icons.error_outline),
+                  ],
+                ),
+              ),
+              GeneralButton(
+                onPressed: () {},
+                color: Colors.indigo,
+                width: media.width / 4,
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    TextComponent(
+                      text: "التفاصيل",
+                      colorText: Colors.white,
 
-        ),
+                      fontSize: 16.0,
+                      isBold: true,
+                    ),
+                    const Icon(Icons.wysiwyg_rounded),
+                  ],
+                ),
+              ),
+              GeneralButton(
+                onPressed: () {},
+                color: Colors.indigo,
+                width: media.width / 4,
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    TextComponent(
+                      text: "مشاركة",
+                      colorText: Colors.white,
 
+                      fontSize: 16.0,
+                      isBold: true,
+                    ),
+                    const Icon(Icons.ios_share),
+                  ],
+                ),
+              ),
+            ],
+          ),
+        ],
+      ),
     );
   }
 }

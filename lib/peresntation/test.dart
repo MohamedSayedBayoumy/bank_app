@@ -1,17 +1,45 @@
+// // ignore_for_file: must_be_immutable, sized_box_for_whitespace
+//
+// import 'package:bank_app/peresntation/components/Directionality_component.dart';
+// import 'package:bank_app/peresntation/components/app_bar/custom_app_bar.dart';
 // import 'package:bank_app/peresntation/components/genral_padding.dart';
-// import 'package:bank_app/peresntation/components/space_component.dart';
-// import 'package:bank_app/peresntation/screens/add_new_data/add_new_cilent.dart';
-// import 'package:bank_app/peresntation/screens/transfer_screens/details_transfer.dart';
-// import 'package:bank_app/peresntation/screens/transfer_screens/transfer_way_screen.dart';
+// import 'package:bank_app/peresntation/components/text_component.dart';
 // import 'package:flutter/gestures.dart';
 // import 'package:flutter/material.dart';
 //
-// import 'components/app_bar/custom_app_bar.dart';
+// import '../../../model.dart';
 // import 'components/app_bar/drawer_component.dart';
-// import 'components/text_component.dart';
+// import 'components/general_button_component.dart';
+// import 'components/space_component.dart';
 //
-// class AddNewTransferScreen extends StatelessWidget {
-//   const AddNewTransferScreen({Key? key}) : super(key: key);
+// class CurrentTransactionsScreenTest extends StatelessWidget {
+//   bool showWidget;
+//
+//   CurrentTransactionsScreenTest({required this.showWidget, Key? key})
+//       : super(key: key);
+//
+//   List<DetailsDataModel> data = [
+//     DetailsDataModel(address: "الرقم التسلسلي للعملية", data: "محمد عبدالله"),
+//     DetailsDataModel(
+//         address: "تاريخ و وقت تنفيذ العمليه", data: "15/3/2023 - 12:30"),
+//     DetailsDataModel(address: "اسم المستلم", data: "احمد علي"),
+//     DetailsDataModel(address: "رقم هاتف المستلم", data: "989898989"),
+//     DetailsDataModel(address: "البلد و المدينه", data: "السودان - الخرطوم"),
+//   ];
+//
+//   List<DetailsDataModel> data2 = [
+//     DetailsDataModel(address: "اسم البنك", data: "بنك البركة"),
+//     DetailsDataModel(address: "الفرع", data: "الرئيسية"),
+//     DetailsDataModel(address: "رقم الحساب", data: "12345"),
+//   ];
+//
+//   List<DetailsDataModel> data3 = [
+//     DetailsDataModel(address: "المبلغ بعملة المرسل", data: "1000"),
+//     DetailsDataModel(address: "المبلغ بالجنية", data: "15000"),
+//     DetailsDataModel(address: "سعر الصرف", data: "150"),
+//     DetailsDataModel(address: "رسوم العملية", data: "12"),
+//     DetailsDataModel(address: "اجمالي المدفوع", data: "1234"),
+//   ];
 //
 //   @override
 //   Widget build(BuildContext context) {
@@ -20,113 +48,206 @@
 //       appBar: CustomAppBar(
 //           needIconBell: true,
 //           customSize: media.height * .12,
-//           title: 'تحويل جديد',
-//           onPressedButtonBack: () {
-//             Navigator.pop(context);
-//           },
 //           onPressedButtonMenu: () {
-//             /// TODO : SOME THING
-//           }),
-//       drawerDragStartBehavior: DragStartBehavior.down,
-//       endDrawer: DrawerComponent(),
+//             /// TODO  :
+//           },
+//           onPressedButtonBack: () {
+//             /// TODO  :
+//           },
+//           title: "المعاملات السابقة"),
 //       body: ListView(
 //         shrinkWrap: true,
 //         physics: const BouncingScrollPhysics(),
 //         children: [
 //           GeneralPadding(
-//               child: Column(
-//             children: [
-//               GestureDetector(
-//                 onTap: () {
-//                   Navigator.push(
-//                       context,
-//                       MaterialPageRoute(
-//                         builder: (context) => const AddNewClient(),
-//                       ));
-//                 },
-//                 child: Row(
-//                   mainAxisAlignment: MainAxisAlignment.end,
-//                   crossAxisAlignment: CrossAxisAlignment.center,
+//             child: Column(
+//               children: [
+//                 Row(
+//                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
+//                   crossAxisAlignment: CrossAxisAlignment.end,
 //                   children: [
 //                     TextComponent(
-//                         isBold: true,
-//                         text: "اضافة مستفيد جديد",
-//                         fontSize: 20.0,
-//                         colorText: Colors.black87),
-//                     const Icon(Icons.add, color: Colors.indigo),
+//                       text: "أمن .. بسيط .. سريع",
+//                       isBold: true,
+//                     ),
+//                     Image.asset("assets/logo2.jpg", width: media.width * .2)
+//                   ],
+//                 ),
+//                 ListView.builder(
+//                   physics: const BouncingScrollPhysics(),
+//                   shrinkWrap: true,
+//                   itemCount: data.length,
+//                   itemBuilder: (context, index) {
+//                     return Container(
+//                       height: media.height * .05,
+//                       child: Row(
+//                         children: [
+//                           Expanded(
+//                             flex: 2,
+//                             child: Container(
+//                               alignment: Alignment.centerLeft,
+//                               child: TextComponent(
+//                                 text: data[index].data,
+//                                 colorText: Colors.black54,
+//                                 fontSize: 17.0,
+//                               ),
+//                             ),
+//                           ),
+//                           Expanded(
+//                             flex: 3,
+//                             child: TextComponent(
+//                               text: data[index].address,
+//                               colorText: Colors.black87,
+//                               fontSize: 17.0,
+//                               isBold: true,
+//                             ),
+//                           ),
+//                         ],
+//                       ),
+//                     );
+//                   },
+//                 ),
+//                 Divider(color: Colors.black, height: media.height * .01),
+//                 AnimatedCrossFade(
+//                     firstChild: ListView.builder(
+//                       physics: const BouncingScrollPhysics(),
+//                       shrinkWrap: true,
+//                       itemCount: data2.length,
+//                       itemBuilder: (context, index) {
+//                         return Container(
+//                           height: media.height * .05,
+//                           child: Row(
+//                             children: [
+//                               Expanded(
+//                                 flex: 2,
+//                                 child: Container(
+//                                   alignment: Alignment.centerLeft,
+//                                   child: TextComponent(
+//                                     text: data2[index].data,
+//                                     colorText: Colors.black54,
+//                                     fontSize: 17.0,
+//                                   ),
+//                                 ),
+//                               ),
+//                               Expanded(
+//                                 flex: 5,
+//                                 child: TextComponent(
+//                                   text: data2[index].address,
+//                                   colorText: Colors.black87,
+//                                   fontSize: 17.0,
+//                                   isBold: true,
+//                                 ),
+//                               ),
+//                             ],
+//                           ),
+//                         );
+//                       },
+//                     ),
+//                     secondChild: Container(),
+//                     crossFadeState: showWidget == true
+//                         ? CrossFadeState.showFirst
+//                         : CrossFadeState.showSecond,
+//                     duration: const Duration(milliseconds: 800)),
+//                 Divider(color: Colors.black, height: media.height * .01),
+//                 ListView.builder(
+//                   physics: const BouncingScrollPhysics(),
+//                   shrinkWrap: true,
+//                   itemCount: data3.length,
+//                   itemBuilder: (context, index) {
+//                     return Container(
+//                       width: media.width,
+//                       height: media.height * .05,
+//                       child: Row(
+//                         children: [
+//                           Expanded(
+//                             flex: 2,
+//                             child: Container(
+//                               alignment: Alignment.centerLeft,
+//                               child: TextComponent(
+//                                 text: data3[index].data,
+//                                 colorText: Colors.black54,
+//                                 fontSize: 17.0,
+//                               ),
+//                             ),
+//                           ),
+//                           Expanded(
+//                             flex: 5,
+//                             child: TextComponent(
+//                               text: data3[index].address,
+//                               colorText: Colors.black87,
+//                               fontSize: 17.0,
+//                               isBold: true,
+//                             ),
+//                           ),
+//                         ],
+//                       ),
+//                     );
+//                   },
+//                 ),
+//               ],
+//             ),
+//           ),
+//           Row(
+//             mainAxisAlignment: MainAxisAlignment.spaceAround,
+//             children: [
+//               GeneralButton(
+//                 onPressed: () {},
+//                 color: Colors.indigo,
+//                 width: media.width / 4,
+//                 child: Row(
+//                   mainAxisAlignment: MainAxisAlignment.center,
+//                   crossAxisAlignment: CrossAxisAlignment.start,
+//                   children: [
+//                     TextComponent(
+//                       text: "استفسار",
+//                       colorText: Colors.white,
+//                       fontSize: 16.0,
+//                       isBold: true,
+//                     ),
+//                     const Icon(Icons.error_outline),
 //                   ],
 //                 ),
 //               ),
-//               SpaceComponent(height: media.height * .03),
-//               ListView.builder(
-//                 shrinkWrap: true,
-//                 itemCount: 15,
-//                 itemBuilder: (context, index) {
-//                   return Container(
-//                     margin: EdgeInsets.only(bottom: media.height * .03),
-//                     padding:
-//                         EdgeInsets.symmetric(horizontal: media.width * .03),
-//                     decoration: BoxDecoration(
-//                         borderRadius: BorderRadius.circular(12),
-//                         border: Border.all(
-//                             color: Colors.black, width: media.height * .002)),
-//                     child: Column(
-//                       mainAxisAlignment: MainAxisAlignment.center,
-//                       children: [
-//                         Row(
-//                           mainAxisAlignment: MainAxisAlignment.end,
-//                           children: [
-//                             TextComponent(
-//                                 fontSize: 25.0,
-//                                 text: "محمد احمد امين",
-//                                 colorText: Colors.indigoAccent)
-//                           ],
-//                         ),
-//                         SpaceComponent(
-//                           height: media.height * .05,
-//                         ),
-//                         Row(
-//                           mainAxisAlignment: MainAxisAlignment.spaceAround,
-//                           children: [
-//                             TextButton(
-//                                 onPressed: () {
-//                                   Navigator.push(
-//                                       context,
-//                                       MaterialPageRoute(
-//                                         builder: (context) =>
-//                                             DetailsTransfer(),
-//                                       ));
-//                                 },
-//                                 child: TextComponent(
-//                                     text: "تفاصيل",
-//                                     colorText: Colors.black87,
-//                                     fontSize: 20.0)),
-//                             Container(
-//                                 width: 1,
-//                                 color: Colors.black,
-//                                 height: media.height * .03),
-//                             TextButton(
-//                                 onPressed: () {
-//                                   Navigator.push(
-//                                       context,
-//                                       MaterialPageRoute(
-//                                         builder: (context) =>
-//                                             const TransferWayScreen(),
-//                                       ));
-//                                 },
-//                                 child: TextComponent(
-//                                     text: "تحويل",
-//                                     colorText: Colors.black87,
-//                                     fontSize: 20.0)),
-//                           ],
-//                         ),
-//                       ],
+//               GeneralButton(
+//                 onPressed: () {},
+//                 color: Colors.indigo,
+//                 width: media.width / 4,
+//                 child: Row(
+//                   mainAxisAlignment: MainAxisAlignment.center,
+//                   crossAxisAlignment: CrossAxisAlignment.start,
+//                   children: [
+//                     TextComponent(
+//                       text: "التفاصيل",
+//                       colorText: Colors.white,
+//
+//                       fontSize: 16.0,
+//                       isBold: true,
 //                     ),
-//                   );
-//                 },
-//               )
+//                     const Icon(Icons.wysiwyg_rounded),
+//                   ],
+//                 ),
+//               ),
+//               GeneralButton(
+//                 onPressed: () {},
+//                 color: Colors.indigo,
+//                 width: media.width / 4,
+//                 child: Row(
+//                   mainAxisAlignment: MainAxisAlignment.center,
+//                   crossAxisAlignment: CrossAxisAlignment.start,
+//                   children: [
+//                     TextComponent(
+//                       text: "مشاركة",
+//                       colorText: Colors.white,
+//
+//                       fontSize: 16.0,
+//                       isBold: true,
+//                     ),
+//                     const Icon(Icons.ios_share),
+//                   ],
+//                 ),
+//               ),
 //             ],
-//           ))
+//           ),
 //         ],
 //       ),
 //     );
