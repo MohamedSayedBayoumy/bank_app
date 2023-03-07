@@ -1,92 +1,134 @@
-// import 'package:bank_app/peresntation/components/general_button_component.dart';
+// import 'package:bank_app/peresntation/components/genral_padding.dart';
 // import 'package:bank_app/peresntation/components/space_component.dart';
-// import 'package:bank_app/peresntation/components/text_component.dart';
+// import 'package:bank_app/peresntation/screens/add_new_data/add_new_cilent.dart';
+// import 'package:bank_app/peresntation/screens/transfer_screens/details_transfer.dart';
+// import 'package:bank_app/peresntation/screens/transfer_screens/transfer_way_screen.dart';
+// import 'package:flutter/gestures.dart';
 // import 'package:flutter/material.dart';
 //
-// import 'components/home_screen_component/custom_widget.dart';
+// import 'components/app_bar/custom_app_bar.dart';
+// import 'components/app_bar/drawer_component.dart';
+// import 'components/text_component.dart';
 //
-//
-// class Test extends StatelessWidget {
-//   const Test({Key? key}) : super(key: key);
+// class AddNewTransferScreen extends StatelessWidget {
+//   const AddNewTransferScreen({Key? key}) : super(key: key);
 //
 //   @override
 //   Widget build(BuildContext context) {
 //     final media = MediaQuery.of(context).size;
 //     return Scaffold(
-//         backgroundColor: const Color.fromRGBO(39, 48, 113, 1),
-//         appBar: AppBar(
-//             elevation: 0.0,
-//             toolbarHeight: media.height * .10,
-//             backgroundColor: Colors.transparent,
-//             leading: IconButton(
-//                 onPressed: () {},
-//                 icon: Image.asset(
-//                   "assets/icons/menu.png",
-//                   width: media.width * .06,
-//                 ))),
-//         body: Padding(
-//             padding: EdgeInsets.symmetric(horizontal: media.width * .03),
-//             child: Center(
-//               child: ListView(
-//                 physics: const BouncingScrollPhysics(),
+//       appBar: CustomAppBar(
+//           needIconBell: true,
+//           customSize: media.height * .12,
+//           title: 'تحويل جديد',
+//           onPressedButtonBack: () {
+//             Navigator.pop(context);
+//           },
+//           onPressedButtonMenu: () {
+//             /// TODO : SOME THING
+//           }),
+//       drawerDragStartBehavior: DragStartBehavior.down,
+//       endDrawer: DrawerComponent(),
+//       body: ListView(
+//         shrinkWrap: true,
+//         physics: const BouncingScrollPhysics(),
+//         children: [
+//           GeneralPadding(
+//               child: Column(
+//             children: [
+//               GestureDetector(
+//                 onTap: () {
+//                   Navigator.push(
+//                       context,
+//                       MaterialPageRoute(
+//                         builder: (context) => const AddNewClient(),
+//                       ));
+//                 },
+//                 child: Row(
+//                   mainAxisAlignment: MainAxisAlignment.end,
+//                   crossAxisAlignment: CrossAxisAlignment.center,
+//                   children: [
+//                     TextComponent(
+//                         isBold: true,
+//                         text: "اضافة مستفيد جديد",
+//                         fontSize: 20.0,
+//                         colorText: Colors.black87),
+//                     const Icon(Icons.add, color: Colors.indigo),
+//                   ],
+//                 ),
+//               ),
+//               SpaceComponent(height: media.height * .03),
+//               ListView.builder(
 //                 shrinkWrap: true,
-//                 children: [
-//                   Image.asset("assets/full_logo.jpg",
-//                       height: media.height * .3),
-//                   SpaceComponent(
-//                     height: media.height * .04,
-//                   ),
-//                   GeneralButton(
-//                     width: media.width * .8,
-//                     height: media.height * .06,
-//                     onPressed: () {},
-//                     color: Colors.pink,
-//                     child: TextComponent(
-//                       isBold: true,
-//                       text: "تسجيل الدخول / التسجيل",
-//                       fontSize: 18.0,
-//                       colorText: Colors.white,
-//                     ),
-//                   ),
-//                   SpaceComponent(
-//                     height: media.height * .02,
-//                   ),
-//                   GeneralButton(
-//                       width: media.width * .8,
-//                       height: media.height * .06,
-//                       borderStyle: 30.0,
-//                       onPressed: () {},
-//                       color: Colors.indigo.withOpacity(.5),
-//                       child: Padding(
-//                         padding:
+//                 itemCount: 15,
+//                 itemBuilder: (context, index) {
+//                   return Container(
+//                     margin: EdgeInsets.only(bottom: media.height * .03),
+//                     padding:
 //                         EdgeInsets.symmetric(horizontal: media.width * .03),
-//                         child: Row(
+//                     decoration: BoxDecoration(
+//                         borderRadius: BorderRadius.circular(12),
+//                         border: Border.all(
+//                             color: Colors.black, width: media.height * .002)),
+//                     child: Column(
+//                       mainAxisAlignment: MainAxisAlignment.center,
+//                       children: [
+//                         Row(
+//                           mainAxisAlignment: MainAxisAlignment.end,
 //                           children: [
-//                             SpaceComponent(
-//                               width: media.width * .25,
-//                             ),
 //                             TextComponent(
-//                               isBold: true,
-//                               text: "English",
-//                               fontSize: 18.0,
-//                               colorText: Colors.white,
-//                             ),
-//                             SpaceComponent(
-//                               width: media.width * .22,
-//                             ),
-//                             SpaceComponent(
-//                               width: media.width * .03,
-//                             ),
-//                             const Icon(Icons.language_sharp),
+//                                 fontSize: 25.0,
+//                                 text: "محمد احمد امين",
+//                                 colorText: Colors.indigoAccent)
 //                           ],
 //                         ),
-//                       )),
-//                   SpaceComponent(
-//                     height: media.height * .03,
-//                   ),
-//                   const CustomNews(),
-//                 ],
-//               ),
-//             )));
+//                         SpaceComponent(
+//                           height: media.height * .05,
+//                         ),
+//                         Row(
+//                           mainAxisAlignment: MainAxisAlignment.spaceAround,
+//                           children: [
+//                             TextButton(
+//                                 onPressed: () {
+//                                   Navigator.push(
+//                                       context,
+//                                       MaterialPageRoute(
+//                                         builder: (context) =>
+//                                             DetailsTransfer(),
+//                                       ));
+//                                 },
+//                                 child: TextComponent(
+//                                     text: "تفاصيل",
+//                                     colorText: Colors.black87,
+//                                     fontSize: 20.0)),
+//                             Container(
+//                                 width: 1,
+//                                 color: Colors.black,
+//                                 height: media.height * .03),
+//                             TextButton(
+//                                 onPressed: () {
+//                                   Navigator.push(
+//                                       context,
+//                                       MaterialPageRoute(
+//                                         builder: (context) =>
+//                                             const TransferWayScreen(),
+//                                       ));
+//                                 },
+//                                 child: TextComponent(
+//                                     text: "تحويل",
+//                                     colorText: Colors.black87,
+//                                     fontSize: 20.0)),
+//                           ],
+//                         ),
+//                       ],
+//                     ),
+//                   );
+//                 },
+//               )
+//             ],
+//           ))
+//         ],
+//       ),
+//     );
 //   }
 // }

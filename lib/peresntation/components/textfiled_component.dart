@@ -28,7 +28,7 @@ class CustomTextField extends StatelessWidget {
   String? Function(String?)? onChange;
   String? Function(String?)? onFieldSubmitted;
   String? Function(String?)? onSaved;
-  void Function()? onTapIcon;
+  void Function()? onTap ;
   bool? enabled;
   TextInputType? textInputType;
   dynamic curveBorder;
@@ -48,7 +48,7 @@ class CustomTextField extends StatelessWidget {
       this.curveBorder,
       this.labelColor,
       this.onChange,
-      this.onTapIcon,
+      this.onTap ,
       this.maxLength,
       this.hinText,
       this.minLength,
@@ -82,7 +82,7 @@ class CustomTextField extends StatelessWidget {
             textAlign: TextAlign.right,
             onChanged: onChange,
             onSaved: onSaved,
-            onTap: onTapIcon,
+            onTap: onTap ,
             enabled: enabled,
             validator: valid,
             controller: controller,

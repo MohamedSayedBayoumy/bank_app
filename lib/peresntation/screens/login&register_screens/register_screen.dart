@@ -137,7 +137,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                     list: type, value: selectChoiceType, styleBorder: 15.0),
                 SpaceComponent(),
                 CustomTextField(
-                    onTapIcon: () => calendarDate(),
+                    onTap : () => calendarDate(),
                     labelText: "تاريخ الميلاد",
                     controller: birthdayController),
 

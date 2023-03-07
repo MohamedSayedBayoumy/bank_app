@@ -3,6 +3,7 @@ import 'package:bank_app/peresntation/components/genral_padding.dart';
 import 'package:bank_app/peresntation/components/space_component.dart';
 import 'package:bank_app/peresntation/components/text_component.dart';
 import 'package:bank_app/peresntation/components/textfiled_component.dart';
+import 'package:bank_app/peresntation/screens/transfer_screens/tranfer_screen.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -20,13 +21,19 @@ class TransferWayScreen extends StatefulWidget {
 
 class _TransferWayScreenState extends State<TransferWayScreen> {
   static List<String> data = [
+    "الغرض من التحويل",
     "سد دين",
     "سلف",
     "اخري",
   ];
   dynamic dataController = data[0];
 
-  bool isChecked = false;
+  bool isCheckedOne = false;
+  bool isCheckedTwo = false;
+  bool showTextField = false;
+
+  TextEditingController purposeController = TextEditingController();
+
 
   Color getColor(Set<MaterialState> states) {
     const Set<MaterialState> interactiveStates = <MaterialState>{
@@ -42,7 +49,9 @@ class _TransferWayScreenState extends State<TransferWayScreen> {
 
   @override
   Widget build(BuildContext context) {
-    final media = MediaQuery.of(context).size;
+    final media = MediaQuery
+        .of(context)
+        .size;
     return Scaffold(
       appBar: CustomAppBar(
           needIconBell: true,
@@ -59,24 +68,19 @@ class _TransferWayScreenState extends State<TransferWayScreen> {
       body: GeneralPadding(
         child: ListView(
           children: [
-            TextComponent(
-              text: " طريقة التحويل",
-              isBold: true,
-              fontSize: 25.sp,
-              colorText: Colors.indigo,
-            ),
             SpaceComponent(),
             Row(
+
               /// TODO : Select one check Box
               children: [
                 const Text("ايداع بنكي"),
                 Checkbox(
                   checkColor: Colors.white,
                   fillColor: MaterialStateProperty.resolveWith(getColor),
-                  value: isChecked,
+                  value: isCheckedOne,
                   onChanged: (bool? value) {
                     setState(() {
-                      isChecked = value!;
+                      isCheckedOne = value!;
                     });
                   },
                 ),
@@ -85,33 +89,58 @@ class _TransferWayScreenState extends State<TransferWayScreen> {
                 Checkbox(
                   checkColor: Colors.white,
                   fillColor: MaterialStateProperty.resolveWith(getColor),
-                  value: isChecked,
+                  value: isCheckedTwo,
                   onChanged: (bool? value) {
                     setState(() {
-                      isChecked = value!;
+                      isCheckedTwo = value!;
                     });
                   },
                 ),
               ],
             ),
             SpaceComponent(),
-            DropList(list: data, value: dataController),
+            DropList(list: data, value: dataController, onChange: (value) {
+              setState(() {
+                dataController = value;
+              });
+              if (dataController == "اخري") {
+                setState(() {
+                  showTextField = true;
+                });
+              } else {
+                setState(() {
+                  showTextField = false;
+                });
+              }
+            },),
             SpaceComponent(
-              height: media.height * .03,
+              height: media.height * .02,
             ),
-            CustomTextField(
-              borderColor: Colors.black,
-              controller: TextEditingController(),
+            AnimatedCrossFade(
+              firstChild: Container(),
+              secondChild: Padding(
+                padding: EdgeInsets.only(top: media.height * .01),
+                child: CustomTextField(
+                  borderColor: Colors.black,
+                  controller: purposeController,
+                  labelText: "الرجاء كتابة الغرض",
+                ),
+              ),
+              crossFadeState: showTextField == false
+                  ? CrossFadeState.showFirst
+                  : CrossFadeState.showSecond,
+              duration: const Duration(milliseconds: 800),
+            ),
 
-              /// TODO : show this when choose "اخري"
-              labelText: "الرجاء كتابة الغرض",
-            ),
             SpaceComponent(
               height: media.height * .02,
             ),
             GeneralButton(
               width: media.width * 2,
-              onPressed: () {},
+              onPressed: () {
+                Navigator.push(context,
+                    MaterialPageRoute(builder: (context) => TransferScreen(),)) ;
+              },
               color: Colors.indigo,
               child: TextComponent(
                   text: "التالي", colorText: Colors.white, fontSize: 15.sp),

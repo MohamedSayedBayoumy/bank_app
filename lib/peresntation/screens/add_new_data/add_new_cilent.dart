@@ -321,7 +321,7 @@ class _AddNewClientState extends State<AddNewClient> {
                   ),
                   SpaceComponent(),
                   CustomTextField(
-                    onTapIcon: () => calendarDate(),
+                    onTap : () => calendarDate(),
                     controller: expireDataController,
                     labelText: "تاريخ الصلاحيه البطاقة شهر / سنة",
                     textInputType: TextInputType.number,

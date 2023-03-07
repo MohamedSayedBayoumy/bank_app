@@ -34,7 +34,7 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget{
               width: media.width * .06,
             )),
         IconButton(
-            onPressed:  onPressedButtonBack ,
+            onPressed:  (){Navigator.pop(context) ;},
             icon: Image.asset(
               "assets/icons/back-arrow.png",
               width: media.width * .06,
