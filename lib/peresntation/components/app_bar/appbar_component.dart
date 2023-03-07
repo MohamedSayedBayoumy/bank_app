@@ -69,24 +69,7 @@ class _NaturalAppBarState extends State<NaturalAppBar> {
           },
         ): null,
         actions: widget.widgets,
-        // flexibleSpace: Container(
-        //   height: widget.heightFlexibleSpace,
-        //   child: Stack(
-        //     children: [
-        //       Positioned(
-        //           top: media.height * .12,
-        //           right: media.width * .02,
-        //           child: Image.asset(
-        //             'assets/triangular-arrow.png',
-        //             width: media.height * .05,
-        //             color: widget.colorIconDrawer == true
-        //                 ? Colors.indigo
-        //                 : Colors.indigo.shade900.withOpacity(.9),
-        //           ))
-        //     ],
-        //   ),
-        // ),
-        title: SizedBox(width : media.width*04 ,child: TextComponent(text: widget.title ,colorText: Colors.white,fontSize: 30.0,)),
+        title: SizedBox(width : media.width*04 ,child: TextComponent(text: widget.title ,colorText: Colors.white,fontSize: 25.0,)),
       ),
     );
   }

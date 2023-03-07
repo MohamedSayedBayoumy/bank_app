@@ -14,11 +14,14 @@ class DropList extends StatefulWidget {
   dynamic styleBorder;
   dynamic colorBorder;
   dynamic iconColor;
+  String? Function(String?)? onChange;
+
 
   DropList(
       {this.width,
       this.height,
       this.colorBorder,
+      this.onChange,
       this.color,
       this.textColor,
         this.iconColor ,
@@ -61,19 +64,17 @@ class _DropList extends State<DropList> {
           value: widget.value.toString(),
           items: widget.list!.map((valueItem) {
             return DropdownMenuItem(
-
                 value: valueItem,
                 child: DirectionalityComponent(
                     child: Text(
                   valueItem.toString(),
                 )));
           }).toList(),
-          onChanged: (val) {
-
+          onChanged: widget.onChange ?? (val) {
             /// TODO : ------------
             setState(() {
               widget.value = val;
-
+              print(widget.value);
             });
           },
         ),

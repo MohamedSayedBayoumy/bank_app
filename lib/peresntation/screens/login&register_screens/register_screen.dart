@@ -75,27 +75,6 @@ class _RegisterScreenState extends State<RegisterScreen> {
               .replaceAll("00:00:00.000", "");
       birthdayController.text = date.toString() ;
     });
-    // await showCalendarDatePicker2Dialog(
-    //   context: context,
-    //   config: CalendarDatePicker2WithActionButtonsConfig(
-    //       calendarType: CalendarDatePicker2Type.single),
-    //   dialogSize: const Size(300, 100),
-    // ).then((value) {
-    //   setState(() {
-    //     var date = value
-    //         .toString()
-    //         .replaceAll("]", "")
-    //         .replaceAll("[", "")
-    //         .replaceAll("00:00:00.000", "");
-    //     print('value : ${date.toString()}');
-    //     if(birthdayController.text == "null"){
-    //       birthdayController.text = ' ' ;
-    //     }else{
-    //       birthdayController.text = date.toString();
-    //
-    //     }
-    //   });
-    // });
   }
 
   @override

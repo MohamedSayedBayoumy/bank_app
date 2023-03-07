@@ -1,7 +1,6 @@
 import 'package:bank_app/peresntation/components/home_screen_component/exchange_rate_component.dart';
 import 'package:bank_app/peresntation/screens/account_screen.dart';
 import 'package:bank_app/peresntation/screens/add_new_data/add_new_cilent.dart';
-import 'package:bank_app/peresntation/screens/add_new_data/add_new_data.dart';
 import 'package:bank_app/peresntation/screens/data_confirmation_screens/data_confirmation_screen.dart';
 import 'package:bank_app/peresntation/components/home_screen_component/custom_widget.dart';
 import 'package:bank_app/peresntation/screens/exchange_rate_screen/exchange_rate.dart';
@@ -45,7 +44,7 @@ class MyApp extends StatelessWidget {
             theme: ThemeData(
               primarySwatch: Colors.blue,
             ),
-            home: HomeScreen(),
+            home: AddNewClient(),
           ) ;
         });
   }
