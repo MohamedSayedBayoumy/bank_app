@@ -131,7 +131,7 @@ class LastTransaction extends StatelessWidget {
                 GestureDetector(
                   child: Container(
                     width: media.width,
-                    height: media.height * .19,
+                    height: media.height * .20,
                     padding:
                         EdgeInsets.symmetric(horizontal: media.width * .04),
                     decoration: BoxDecoration(
@@ -180,7 +180,7 @@ class LastTransaction extends StatelessWidget {
                           width: media.width * .12,
                         ),
                         Expanded(
-                          flex: 6,
+                          flex: 7,
                           child: Column(
                             crossAxisAlignment: CrossAxisAlignment.end,
                             mainAxisAlignment: MainAxisAlignment.center,

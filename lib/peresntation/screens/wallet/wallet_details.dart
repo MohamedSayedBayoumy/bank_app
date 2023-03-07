@@ -62,7 +62,7 @@ class MyWallet extends StatelessWidget {
             /// TODO : SOME THING
           }),
       drawerDragStartBehavior: DragStartBehavior.down,
-      endDrawer:    DrawerComponent(),
+      endDrawer: DrawerComponent(),
       body: GeneralPadding(
         child: ListView(
           physics: const BouncingScrollPhysics(),
@@ -113,10 +113,7 @@ class MyWallet extends StatelessWidget {
                   )),
             ),
             SpaceComponent(height: media.height * .05),
-            Container(
-              width: media.width,
-              height: media.height*.5,
-              child: ListView.builder(
+              ListView.builder(
                 physics: const BouncingScrollPhysics(),
                 shrinkWrap: true,
                 itemCount: data.length,
@@ -127,24 +124,35 @@ class MyWallet extends StatelessWidget {
                       padding: EdgeInsets.only(bottom: media.height * .02),
                       child: Container(
                         width: media.width * .03,
-                        height: media.height * .09,
-                        decoration: BoxDecoration(
+                        padding: EdgeInsets.only(bottom: media.height*.006),
+                        decoration: const BoxDecoration(
                             border: Border(
-                                bottom:
-                                    BorderSide(color: Colors.black87, width: 1.sp))),
-                        child: Column( children: [
+                                bottom: BorderSide(
+                                    color: Colors.black87 ))),
+                        child: Column(children: [
                           Row(
                             children: [
                               IconButton(onPressed: () {}, icon: icons[index]),
-                              TextComponent(text: data[index].nameAr , fontSize: 18.sp,),
+                              TextComponent(
+                                text: data[index].nameAr,
+                                fontSize: 18.sp,
+                              ),
                               const Spacer(),
-                              TextComponent(text: data[index].count,fontSize: 18.sp,),
-                              // IconButton(onPressed: (){}, icon:icons[index] )
+                              TextComponent(
+                                text: data[index].count,
+                                fontSize: 18.sp,
+                              ),
+
                             ],
                           ),
                           Row(
                             mainAxisAlignment: MainAxisAlignment.end,
-                            children: [TextComponent(text: data[index].date,fontSize: 18.sp,)],
+                            children: [
+                              TextComponent(
+                                text: data[index].date,
+                                fontSize: 18.sp,
+                              )
+                            ],
                           ),
                         ]),
                       ),
@@ -152,7 +160,6 @@ class MyWallet extends StatelessWidget {
                   );
                 },
               ),
-            ),
           ],
         ),
       ),
