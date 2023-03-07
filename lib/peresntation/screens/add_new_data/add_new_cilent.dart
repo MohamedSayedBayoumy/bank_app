@@ -248,7 +248,7 @@ class _AddNewClientState extends State<AddNewClient> {
                 mainAxisAlignment: MainAxisAlignment.end,
                 children: [
                   TextComponent(
-                      text: "اضافة مستفيد جديد",
+                      text: "اضافة حساب بنكي",
                       fontSize: 18.0,
                       colorText: Colors.black87),
                   IconButton(
