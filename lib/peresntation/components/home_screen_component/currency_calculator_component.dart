@@ -23,7 +23,10 @@ class _CurrencyCalculatorComponentState extends State<CurrencyCalculatorComponen
   ];
   dynamic selectChoiceId = country[1];
 
-  bool isChecked = false;
+  bool isChecked1 = false;
+  bool isChecked2 = false;
+  bool isChecked3 = false;
+  bool isChecked4 = false;
 
   Color getColor(Set<MaterialState> states) {
     const Set<MaterialState> interactiveStates = <MaterialState>{
@@ -160,10 +163,10 @@ class _CurrencyCalculatorComponentState extends State<CurrencyCalculatorComponen
                       shape: const CircleBorder(),
                       checkColor: Colors.white,
                       fillColor: MaterialStateProperty.resolveWith(getColor),
-                      value: isChecked,
+                      value: isChecked1,
                       onChanged: (bool? value) {
                         setState(() {
-                          isChecked = value!;
+                          isChecked1 = value!;
                         });
                       },
                     ),
@@ -177,10 +180,10 @@ class _CurrencyCalculatorComponentState extends State<CurrencyCalculatorComponen
                       shape: const CircleBorder(),
                       checkColor: Colors.white,
                       fillColor: MaterialStateProperty.resolveWith(getColor),
-                      value: isChecked,
+                      value: isChecked2,
                       onChanged: (bool? value) {
                         setState(() {
-                          isChecked = value!;
+                          isChecked2 = value!;
                         });
                       },
                     ),
@@ -197,10 +200,10 @@ class _CurrencyCalculatorComponentState extends State<CurrencyCalculatorComponen
                       shape: const CircleBorder(),
                       checkColor: Colors.white,
                       fillColor: MaterialStateProperty.resolveWith(getColor),
-                      value: isChecked,
+                      value: isChecked3,
                       onChanged: (bool? value) {
                         setState(() {
-                          isChecked = value!;
+                          isChecked3 = value!;
                         });
                       },
                     ),
@@ -214,10 +217,10 @@ class _CurrencyCalculatorComponentState extends State<CurrencyCalculatorComponen
                       shape: const CircleBorder(),
                       checkColor: Colors.white,
                       fillColor: MaterialStateProperty.resolveWith(getColor),
-                      value: isChecked,
+                      value: isChecked4,
                       onChanged: (bool? value) {
                         setState(() {
-                          isChecked = value!;
+                          isChecked4 = value!;
                         });
                       },
                     ),
