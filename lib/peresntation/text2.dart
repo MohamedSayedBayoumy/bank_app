@@ -1,262 +1,184 @@
-// import 'package:animate_do/animate_do.dart';
-// import 'package:bank_app/peresntation/components/textfiled_component.dart';
-// import 'package:flutter/material.dart';
-//
-// import 'components/drop_list_component.dart';
-// import 'components/space_component.dart';
-// import 'components/text_component.dart';
-//
-// class test2 extends StatefulWidget {
-//   const test2({Key? key}) : super(key: key);
-//
-//   @override
-//   State<test2> createState() => _test2State();
-// }
-//
-// class _test2State extends State<test2> {
-// //   static List<String> country = [
-// //     "مصر",
-// //     "السعوديه",
-// //     "الامارات",
-// //     "تركيا",
-// //     "امريكا",
-// //     "لبنان",
-// //   ];
-// //   dynamic selectChoiceId = country[1];
-// //
-// //   bool isChecked = false;
-// //
-// //   Color getColor(Set<MaterialState> states) {
-// //     const Set<MaterialState> interactiveStates = <MaterialState>{
-// //       MaterialState.pressed,
-// //       MaterialState.hovered,
-// //       MaterialState.focused,
-// //     };
-// //     if (states.any(interactiveStates.contains)) {
-// //       return Colors.indigo.shade900;
-// //     }
-// //     return Colors.blue;
-// //   }
-// //
-// //   double exchangeRate =0 ;
-// //   TextEditingController fromController = TextEditingController();
-// //
-// //   TextEditingController toController = TextEditingController();
-// //
-// //   void sum() {
-// //     if (fromController.text.isEmpty) {
-// //       setState(() {
-// //         toController.text = '' ;
-// //       });
-// //     } else{
-// //       var myInt = int.parse(fromController.text);
-// //       assert(myInt is int);
-// //       var sum = myInt * 2;
-// //       setState(() {
-// //         toController.text = sum.toString();
-// //         print(toController.text);
-// //       });
-// //     }
-// //   }
-// //
-// //   @override
-// //   void initState() {
-// //     fromController.addListener(() {
-// //       sum();
-// //     });
-// //     super.initState();
-// //   }
-// //
-// //   bool switchPosition =true ;
-// //   @override
-// //   Widget build(BuildContext context) {
-// //     final media = MediaQuery.of(context).size;
-// //     double positionOne = media.height*.03 ;
-// //     double positionTwo = media.height*.16 ;
-// //     return Row(
-// //       children: [
-// //         Expanded(
-// //             flex: 2,
-// //             child: Stack(
-// //               children: [
-// //                 Container(height: media.height*.22 ) ,
-// //
-// //                 AnimatedPositioned(
-// //                     top: switchPosition == true ? media.height*.03 : media.height*.16 , duration: const Duration(milliseconds: 800),
-// //                     child: Container(
-// //                       width: media.width*.62,
-// //                   height: media.height * .05,
-// //                   decoration: BoxDecoration(
-// //                       borderRadius: BorderRadius.circular(18),
-// //                       color: Colors.white),
-// //                   child: Row(
-// //                     children: [
-// //                       DropList(
-// //                         iconColor: Colors.white,
-// //                         textColor: Colors.white,
-// //                         styleBorder: 18.0,
-// //                         colorBorder: Colors.blueAccent,
-// //                         color: Colors.blueAccent,
-// //                         list: country,
-// //                         value: selectChoiceId,
-// //                         width: media.width * .4,
-// //                         height: media.height * .05,
-// //                       ),
-// //                       CustomTextField(
-// //                         maxLength: 2,
-// //                         textInputType: TextInputType.number,
-// //                         controller: fromController,
-// //                         width: media.width * .22,
-// //                         curveBorder: 80.0,
-// //                         fill: false,
-// //                         styleBorder: InputBorder.none,
-// //                       ),
-// //                     ],
-// //                   ),
-// //                 )) ,
-// //                 AnimatedPositioned(
-// //                     top: switchPosition == true ? media.height*.16 : media.height*.03, duration: const Duration(milliseconds: 800),
-// //                     child:
-// //                     Container(
-// //                       width: media.width*.62,
-// //                       height: media.height * .05,
-// //                       decoration: BoxDecoration(
-// //                           borderRadius: BorderRadius.circular(18),
-// //                           color: Colors.white),
-// //                       child: Row(
-// //                         mainAxisAlignment: MainAxisAlignment.spaceAround,
-// //                         children: [
-// //                           DropList(
-// //                             iconColor: Colors.white,
-// //                             textColor: Colors.white,
-// //                             styleBorder: 18.0,
-// //                             colorBorder: Colors.blueAccent,
-// //                             color: Colors.blueAccent,
-// //                             list: country,
-// //                             value: selectChoiceId,
-// //                             width: media.width * .4,
-// //                             height: media.height * .05,
-// //                           ),
-// //                           CustomTextField(
-// //                             maxLength: 2,
-// //                             textInputType: TextInputType.number,
-// //                             controller: toController,
-// //                             width: media.width * .22,
-// //                             curveBorder: 80.0,
-// //                             fill: false,
-// //                             styleBorder: InputBorder.none,
-// //                           ),
-// //                         ],
-// //                       ),
-// //                     ),)  ,
-// //
-// //                 Container( width : media.width , height : media.height*.03, margin: EdgeInsets.only(top: media.height*.08), child: Row(
-// //                   children: [
-// //                     TextComponent(
-// //                       text: "نقدي",
-// //                       fontSize: 18.0,
-// //                       colorText: Colors.white,
-// //                     ),
-// //                     Checkbox(
-// //                       shape: const CircleBorder(),
-// //                       checkColor: Colors.white,
-// //                       fillColor: MaterialStateProperty.resolveWith(getColor),
-// //                       value: isChecked,
-// //                       onChanged: (bool? value) {
-// //                         setState(() {
-// //                           isChecked = value!;
-// //                         });
-// //                       },
-// //                     ),
-// //                     const Spacer(),
-// //                     TextComponent(
-// //                       text: "بنك",
-// //                       fontSize: 18.0,
-// //                       colorText: Colors.white,
-// //                     ),
-// //                     Checkbox(
-// //                       shape: const CircleBorder(),
-// //                       checkColor: Colors.white,
-// //                       fillColor: MaterialStateProperty.resolveWith(getColor),
-// //                       value: isChecked,
-// //                       onChanged: (bool? value) {
-// //                         setState(() {
-// //                           isChecked = value!;
-// //                         });
-// //                       },
-// //                     ),
-// //                   ],
-// //                 ) ,),
-// //                 Container( width : media.width , height : media.height*.03, margin: EdgeInsets.only(top: media.height*.21), child: Row(
-// //                   children: [
-// //                     TextComponent(
-// //                       text: "نقدي",
-// //                       fontSize: 18.0,
-// //                       colorText: Colors.white,
-// //                     ),
-// //                     Checkbox(
-// //                       shape: const CircleBorder(),
-// //                       checkColor: Colors.white,
-// //                       fillColor: MaterialStateProperty.resolveWith(getColor),
-// //                       value: isChecked,
-// //                       onChanged: (bool? value) {
-// //                         setState(() {
-// //                           isChecked = value!;
-// //                         });
-// //                       },
-// //                     ),
-// //                     const Spacer(),
-// //                     TextComponent(
-// //                       text: "بنك",
-// //                       fontSize: 18.0,
-// //                       colorText: Colors.white,
-// //                     ),
-// //                     Checkbox(
-// //                       shape: const CircleBorder(),
-// //                       checkColor: Colors.white,
-// //                       fillColor: MaterialStateProperty.resolveWith(getColor),
-// //                       value: isChecked,
-// //                       onChanged: (bool? value) {
-// //                         setState(() {
-// //                           isChecked = value!;
-// //                         });
-// //                       },
-// //                     ),
-// //                   ],
-// //                 ) ,),
-// //
-// //               ],
-// //             )),
-// //         Expanded(
-// //             flex: 1,
-// //             child: Column(
-// //               mainAxisAlignment: MainAxisAlignment.center,
-// //               mainAxisSize: MainAxisSize.min,
-// //               children: [
-// //                 TextComponent(
-// //                     text: "العمله من", colorText: Colors.white, fontSize: 20.0),
-// //                 SpaceComponent(
-// //                   height: media.height * .02,
-// //                 ),
-// //                 GestureDetector(
-// //                   onTap: () {
-// //                     setState(() {
-// //                       switchPosition = !switchPosition ;
-// //                     });
-// //                   },
-// //                   child: Image.asset(
-// //                     "assets/row_up_down.png",
-// //                     height: media.height * .06,
-// //                   ),
-// //                 ),
-// //                 SpaceComponent(
-// //                   height: media.height * .01,
-// //                 ),
-// //                 TextComponent(
-// //                     text: "العمله الي", colorText: Colors.white, fontSize: 20.0),
-// //               ],
-// //             )),
-// //       ],
-// //     );
-// //   }
-// // }
+// ignore_for_file: must_be_immutable, unnecessary_type_check
+
+import 'package:bank_app/peresntation/components/drop_list_component.dart';
+import 'package:bank_app/peresntation/components/genral_padding.dart';
+import 'package:bank_app/peresntation/components/space_component.dart';
+import 'package:bank_app/peresntation/components/text_component.dart';
+import 'package:bank_app/peresntation/components/textfiled_component.dart';
+import 'package:bank_app/peresntation/screens/transfer_screens/transfer_data_confirmation.dart';
+import 'package:flutter/gestures.dart';
+import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+
+import 'components/app_bar/custom_app_bar.dart';
+import 'components/app_bar/drawer_component.dart';
+import 'components/general_button_component.dart';
+
+class TransferScreens extends StatefulWidget {
+  TransferScreens({Key? key}) : super(key: key);
+
+  static List<String> data = [
+    "العملة",
+    "جنية",
+    "جنية استريلني",
+    "دولار",
+    "يورو",
+  ];
+  static List<String> data1 = [
+    "طريقة الدفع",
+    "بطاقة ائتمان",
+    "بطاقة الخصم",
+  ];
+
+  @override
+  State<TransferScreens> createState() => _TransferScreensState();
+}
+
+class _TransferScreensState extends State<TransferScreens> {
+  dynamic dataController = TransferScreens.data[0];
+
+  dynamic data1Controller = TransferScreens.data1[0];
+
+  bool switchController = true;
+
+  TextEditingController fromController  = TextEditingController();
+  TextEditingController fromControllerTwo  = TextEditingController();
+
+
+  TextEditingController toController  = TextEditingController();
+
+
+  void sum() {
+    if (fromController .text.isEmpty) {
+      setState(() {
+        toController .text = '';
+      });
+    } else {
+      var myInt = int.parse(fromController .text);
+      assert(myInt is int);
+      var sum = myInt * 2;
+      setState(() {
+        toController .text = sum.toString();
+        print("to : ${toController .text}");
+      });
+    }
+  }
+
+
+  // void sum2() {
+  //   if (fromControllerTwo.text.isEmpty) {
+  //
+  //   } else {
+  //     var myInt = int.parse(fromControllerTwo.text);
+  //     assert(myInt is int);
+  //     var sum = myInt / 2;
+  //     setState(() {
+  //       toController .text = sum.toString();
+  //       print("from : ${toController .text}");
+  //     });
+  //   }
+  // }
+
+  @override
+  void initState() {
+    fromController .addListener(() {
+      sum();
+    });
+    // fromControllerTwo .addListener(() {
+    //   sum();
+    // });
+
+
+    super.initState();
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    final media = MediaQuery.of(context).size;
+    fromControllerTwo = TextEditingController();
+    return Scaffold(
+      appBar: CustomAppBar(
+          needIconBell: true,
+          customSize: media.height * .12,
+          title: 'التحويل',
+          onPressedButtonBack: () {
+            /// TODO : SOME THING
+          },
+          onPressedButtonMenu: () {
+            /// TODO : SOME THING
+          }),
+      drawerDragStartBehavior: DragStartBehavior.down,
+      endDrawer: DrawerComponent(),
+      body: GeneralPadding(
+        child: ListView(
+          shrinkWrap: true,
+          physics: const BouncingScrollPhysics(),
+          children: [
+            DropList(list: TransferScreens.data, value: dataController),
+            SizedBox(
+              height: media.height*.09,
+              child: Padding(
+                padding: const EdgeInsets.all(15.0),
+                child: CustomTextField(
+                  onTap: () {
+                    setState(() {
+                      if(switchController == false){
+                        print("hi1") ;
+                        switchController = !switchController ;
+                        print(switchController) ;
+                      }
+                    });
+                  },
+                  textInputType: TextInputType.number,
+                  controller: switchController == true ? fromController  : toController  ,
+                  labelText: "المبلغ المراد تحويله",
+                ),
+              ),
+            ),
+
+            SpaceComponent(
+              height: media.height * .03,
+            ),
+            CustomTextField(
+              onTap: () {
+                setState(() {
+                    print("hi2") ;
+                    switchController = !switchController ;
+                    print(switchController) ;
+                });
+              },
+              textInputType: TextInputType.number,
+              controller: switchController == true ? toController : fromController  ,
+              labelText: "المبلغ المراد استلامه",
+              fill: false,
+            ),
+            SpaceComponent(
+              height: media.height * .03,
+            ),
+            DropList(list: TransferScreens.data1, value: data1Controller),
+            SpaceComponent(
+              height: media.height * .03,
+            ),
+            GeneralButton(
+              width: media.width * 2,
+              onPressed: () {
+                Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => ConfirmationTransferDataScreen(),
+                    ));
+              },
+              color: Colors.indigo,
+              height: media.height * .05,
+              child: TextComponent(
+                text: "حفظ",
+                fontSize: 16.sp,
+                colorText: Colors.white,
+              ),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+}

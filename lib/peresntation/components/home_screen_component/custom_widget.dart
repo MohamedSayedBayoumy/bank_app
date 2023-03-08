@@ -5,6 +5,7 @@ import 'package:bank_app/peresntation/text2.dart';
 import 'package:flutter/material.dart';
 
 
+import '../../test_home_scrren.dart';
 import 'exchange_rate_component.dart';
 
 class CustomNews extends StatefulWidget {
@@ -72,7 +73,8 @@ class _CustomNewsState extends State<CustomNews> {
             ],
           ) ,
           AnimatedCrossFade(
-              firstChild: const CurrencyCalculatorComponent() ,
+              // firstChild: const CurrencyCalculatorComponent() ,
+              firstChild: const CurrencyCalculatorComponents() ,
               secondChild: ExchangeRateComponent(colorText: Colors.white,needDivider: false) ,
               crossFadeState: change == true ? CrossFadeState.showFirst : CrossFadeState.showSecond  ,
               duration: const Duration(milliseconds: 500)) ,
