@@ -25,20 +25,27 @@ class DrawerComponent extends StatelessWidget {
                 height: media.height,
               ),
             ),
+
             Positioned(
-                top: media.height * .067,
-                right: 0,
+              top: media.height * .082,
+              right: 0,
+              child: Container(
+                height: media.height*.05,
+                // color: Colors.grey,
                 child: Image.asset(
                   "assets/triangular-arrow.png",
                   color: Colors.indigoAccent.withOpacity(.3),
-                  width: media.width * .15,
-                )),
+                  width: 60,
+                ),
+              ),
+            ),
             Positioned(
               top: media.height * .120,
               right: 0,
               child: Container(
                 width: media.width*.7,
                 height: media.height,
+                // color: Colors.red,
                 color: Colors.indigo.shade900.withOpacity(.2),
               ),
             ),
@@ -47,10 +54,10 @@ class DrawerComponent extends StatelessWidget {
               right: 0,
               child: Column(
                 children: [
+
                   SpaceComponent(
                     height: media.height * .05,
                   ),
-
                   GestureDetector(
                     onTap: () {
                       /// TODO : -----------------
