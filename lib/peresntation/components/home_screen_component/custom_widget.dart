@@ -73,8 +73,8 @@ class _CustomNewsState extends State<CustomNews> {
             ],
           ) ,
           AnimatedCrossFade(
-              // firstChild: const CurrencyCalculatorComponent() ,
-              firstChild: const CurrencyCalculatorComponents() ,
+              firstChild: const CurrencyCalculatorComponent() ,
+              // firstChild: const CurrencyCalculatorComponents() ,
               secondChild: ExchangeRateComponent(colorText: Colors.white,needDivider: false) ,
               crossFadeState: change == true ? CrossFadeState.showFirst : CrossFadeState.showSecond  ,
               duration: const Duration(milliseconds: 500)) ,
